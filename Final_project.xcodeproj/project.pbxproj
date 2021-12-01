@@ -10,10 +10,15 @@
 		ABB5C32B2757122D0021C984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C32A2757122D0021C984 /* AppDelegate.swift */; };
 		ABB5C32D2757122D0021C984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C32C2757122D0021C984 /* SceneDelegate.swift */; };
 		ABB5C32F2757122D0021C984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C32E2757122D0021C984 /* ViewController.swift */; };
-		ABB5C3322757122D0021C984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB5C3302757122D0021C984 /* Main.storyboard */; };
 		ABB5C3352757122D0021C984 /* Final_project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C3332757122D0021C984 /* Final_project.xcdatamodeld */; };
 		ABB5C3372757122E0021C984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB5C3362757122E0021C984 /* Assets.xcassets */; };
-		ABB5C33A2757122E0021C984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB5C3382757122E0021C984 /* LaunchScreen.storyboard */; };
+		ABB5C344275712D70021C984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB5C343275712D70021C984 /* Main.storyboard */; };
+		ABB5C346275712DC0021C984 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB5C345275712DC0021C984 /* LaunchScreen.storyboard */; };
+		ABB5C348275712E30021C984 /* VideoAnalgesic.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C347275712E30021C984 /* VideoAnalgesic.swift */; };
+		ABB5C34A275712E70021C984 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C349275712E70021C984 /* HomeViewController.swift */; };
+		ABB5C34C275712EC0021C984 /* GameReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C34B275712EC0021C984 /* GameReadyViewController.swift */; };
+		ABB5C34E275712F00021C984 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C34D275712F00021C984 /* GameViewController.swift */; };
+		ABB5C350275712F40021C984 /* FinishScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,11 +26,16 @@
 		ABB5C32A2757122D0021C984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB5C32C2757122D0021C984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ABB5C32E2757122D0021C984 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		ABB5C3312757122D0021C984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ABB5C3342757122D0021C984 /* Final_project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Final_project.xcdatamodel; sourceTree = "<group>"; };
 		ABB5C3362757122E0021C984 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		ABB5C3392757122E0021C984 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABB5C33B2757122E0021C984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABB5C343275712D70021C984 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		ABB5C345275712DC0021C984 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ABB5C347275712E30021C984 /* VideoAnalgesic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoAnalgesic.swift; sourceTree = "<group>"; };
+		ABB5C349275712E70021C984 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ABB5C34B275712EC0021C984 /* GameReadyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameReadyViewController.swift; sourceTree = "<group>"; };
+		ABB5C34D275712F00021C984 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,11 +71,16 @@
 				ABB5C32A2757122D0021C984 /* AppDelegate.swift */,
 				ABB5C32C2757122D0021C984 /* SceneDelegate.swift */,
 				ABB5C32E2757122D0021C984 /* ViewController.swift */,
-				ABB5C3302757122D0021C984 /* Main.storyboard */,
 				ABB5C3362757122E0021C984 /* Assets.xcassets */,
-				ABB5C3382757122E0021C984 /* LaunchScreen.storyboard */,
 				ABB5C33B2757122E0021C984 /* Info.plist */,
 				ABB5C3332757122D0021C984 /* Final_project.xcdatamodeld */,
+				ABB5C343275712D70021C984 /* Main.storyboard */,
+				ABB5C345275712DC0021C984 /* LaunchScreen.storyboard */,
+				ABB5C347275712E30021C984 /* VideoAnalgesic.swift */,
+				ABB5C349275712E70021C984 /* HomeViewController.swift */,
+				ABB5C34B275712EC0021C984 /* GameReadyViewController.swift */,
+				ABB5C34D275712F00021C984 /* GameViewController.swift */,
+				ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */,
 			);
 			path = Final_project;
 			sourceTree = "<group>";
@@ -128,9 +143,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ABB5C33A2757122E0021C984 /* LaunchScreen.storyboard in Resources */,
+				ABB5C346275712DC0021C984 /* LaunchScreen.storyboard in Resources */,
 				ABB5C3372757122E0021C984 /* Assets.xcassets in Resources */,
-				ABB5C3322757122D0021C984 /* Main.storyboard in Resources */,
+				ABB5C344275712D70021C984 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,31 +158,17 @@
 			files = (
 				ABB5C32F2757122D0021C984 /* ViewController.swift in Sources */,
 				ABB5C32B2757122D0021C984 /* AppDelegate.swift in Sources */,
+				ABB5C350275712F40021C984 /* FinishScreenViewController.swift in Sources */,
+				ABB5C34C275712EC0021C984 /* GameReadyViewController.swift in Sources */,
 				ABB5C3352757122D0021C984 /* Final_project.xcdatamodeld in Sources */,
+				ABB5C34E275712F00021C984 /* GameViewController.swift in Sources */,
+				ABB5C348275712E30021C984 /* VideoAnalgesic.swift in Sources */,
 				ABB5C32D2757122D0021C984 /* SceneDelegate.swift in Sources */,
+				ABB5C34A275712E70021C984 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		ABB5C3302757122D0021C984 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABB5C3312757122D0021C984 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		ABB5C3382757122E0021C984 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ABB5C3392757122E0021C984 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		ABB5C33C2757122E0021C984 /* Debug */ = {

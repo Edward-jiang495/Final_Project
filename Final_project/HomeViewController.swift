@@ -9,6 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     
+//    lazy var playerModel = PlayerModel.shared
+    
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -59,7 +62,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         self.room.delegate = self
         self.room.dataSource = self
-        easyRooms = ["Kitchen", "Living Room"]
+        easyRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "easy")
         mediumRooms = ["Bathroom", "Attic"]
         hardRooms = ["Garage", "Garden"]
         impossibleRooms = ["Museum", "University"]

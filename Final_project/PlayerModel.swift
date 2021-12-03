@@ -12,9 +12,9 @@ class PlayerModel: NSObject {
     
     static let shared = PlayerModel();
     
-    var highScorePerRoom:[String:Int] = EnviornmentModel.shared.blankHighscores;
+    var highScorePerRoom:[String:Int] = EnviornmentModel.shared.startingHighscores;
     var completedRooms:[String] = [];
-    var itemsFound:[String:[String]] = [:];
+    var itemsFound:[String:[String]] = EnviornmentModel.shared.startingItemsFound;
     
     
     private override init() {
@@ -55,9 +55,9 @@ class PlayerModel: NSObject {
     }
     
     func resetPlayer(){
-        highScorePerRoom = EnviornmentModel.shared.blankHighscores;
+        highScorePerRoom = EnviornmentModel.shared.startingHighscores;
         completedRooms = [];
-        itemsFound = [:];
+        itemsFound = EnviornmentModel.shared.startingItemsFound;
         UserDefaults.standard.removeObject(forKey:"highScorePerRoom");
         UserDefaults.standard.removeObject(forKey:"completedRooms");
         UserDefaults.standard.removeObject(forKey:"itemsFound");

@@ -105,7 +105,10 @@ class EnviornmentModel: NSObject {
     
     private override init() {
         super.init();
-        
+    }
+    
+    func getRoomWithDifficulty(diff: String) -> [String]{
+        return difficulty[diff]!
     }
     
 

@@ -11,6 +11,9 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        var room = GameModel.shared.getRoom()
+        timeLeft = EnviornmentModel.shared.getTimeWithRooms(room: room)
+        
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
     }

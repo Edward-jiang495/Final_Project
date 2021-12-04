@@ -17,11 +17,11 @@ class GameReadyViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        var room = PlayerModel.shared.getRoom()
-//        locations.text = room
-//        time.text = String(EnviornmentModel.shared.getTimeWithRooms(room: room)) + "seconds "
-//        highScore.text = "Highscore: " + String(EnviornmentModel.shared.getHighScoreWithRooms(room: room))
-//        items.text = EnviornmentModel.shared.getRemainingItemsWithRooms(room: room)
+        var room = GameModel.shared.getRoom()
+        locations.text = room
+        time.text = String(EnviornmentModel.shared.getTimeWithRooms(room: room)) + "seconds "
+        highScore.text = "Highscore: " + String(EnviornmentModel.shared.getHighScoreWithRooms(room: room))
+        items.text = EnviornmentModel.shared.getRemainingItemsWithRooms(room: room)
         
 
     }

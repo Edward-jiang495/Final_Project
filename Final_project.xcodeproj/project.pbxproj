@@ -21,6 +21,7 @@
 		ABB5C34C275712EC0021C984 /* GameReadyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C34B275712EC0021C984 /* GameReadyViewController.swift */; };
 		ABB5C34E275712F00021C984 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C34D275712F00021C984 /* GameViewController.swift */; };
 		ABB5C350275712F40021C984 /* FinishScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */; };
+		ABB5C352275BCDE70021C984 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C351275BCDE70021C984 /* GameModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		ABB5C34B275712EC0021C984 /* GameReadyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameReadyViewController.swift; sourceTree = "<group>"; };
 		ABB5C34D275712F00021C984 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishScreenViewController.swift; sourceTree = "<group>"; };
+		ABB5C351275BCDE70021C984 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				ABB5C34B275712EC0021C984 /* GameReadyViewController.swift */,
 				ABB5C34D275712F00021C984 /* GameViewController.swift */,
 				ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */,
+				ABB5C351275BCDE70021C984 /* GameModel.swift */,
 			);
 			path = Final_project;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				ABB5C32F2757122D0021C984 /* ViewController.swift in Sources */,
 				ABB5C32B2757122D0021C984 /* AppDelegate.swift in Sources */,
 				ABB5C350275712F40021C984 /* FinishScreenViewController.swift in Sources */,
+				ABB5C352275BCDE70021C984 /* GameModel.swift in Sources */,
 				ABB5C34C275712EC0021C984 /* GameReadyViewController.swift in Sources */,
 				ABB5C3352757122D0021C984 /* Final_project.xcdatamodeld in Sources */,
 				ABB5C34E275712F00021C984 /* GameViewController.swift in Sources */,

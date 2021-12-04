@@ -60,7 +60,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         easyRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "easy")
         mediumRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "medium")
         hardRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "hard")
-        self.setProgress(val: 0.9)
+        var found = PlayerModel.shared.percentNotFound()
+        self.setProgress(val:  Float(found))
         // Do any additional setup after loading the view.
     }
     
@@ -92,6 +93,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         print(selectedValue)
 //        print selected room
+        GameModel.shared.setRoom(room: selectedValue)
     
 
         
@@ -100,7 +102,37 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBAction func reset(_ sender: UIButton) {
 //        reset
-        PlayerModel.shared.resetPlayer();
+//        add an alert box to warn players about reseting
+        let alert = UIAlertController(title: "Reset Player?", message: "Upon clicking reset, all of your records be be erased. Are you sure about this? ", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+            switch action.style{
+                case .default:
+                PlayerModel.shared.resetPlayer()
+                print("RESET")
+                case .cancel:
+                print("cancel")
+                
+                case .destructive:
+                print("destructive")
+                
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
+            switch action.style{
+                case .default:
+                print("default")
+                
+                case .cancel:
+                print("cancel")
+                
+                case .destructive:
+                print("destructive")
+                
+            }
+        }))
+        
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
     func setProgress(val: Float){

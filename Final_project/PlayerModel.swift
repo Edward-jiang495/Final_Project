@@ -15,6 +15,7 @@ class PlayerModel: NSObject {
     var highScorePerRoom:[String:Int] = EnviornmentModel.shared.startingHighscores;
     var completedRooms:[String] = [];
     var itemsFound:[String:[String]] = EnviornmentModel.shared.startingItemsFound;
+    lazy private var currentRoom = ""
     
     
     private override init() {
@@ -73,5 +74,8 @@ class PlayerModel: NSObject {
         return Double(totalItemsFound)/Double(EnviornmentModel.shared.locations.keys.count);
     }
     
+    func getRoom()->String{
+        return currentRoom
+    }
     
 }

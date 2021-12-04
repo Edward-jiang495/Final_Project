@@ -100,6 +100,75 @@ class EnviornmentModel: NSObject {
     
     let startingItemsFound:[String:[String]] = ["personal room":[],"living room":[],"kitchen":[],"sports room":[],"zoo":[],"airport":[]];
     
+    var startingItemsNotFound:[String:[String]] = [
+        "personal room": ["person",
+                        "backpack",
+                        "handbag",
+                        "luggage",
+                        "bed",
+                        "computer mouse",
+                        "keyboard",
+                        "computer",
+                        "cell phone",
+                        "books",
+                        "teddy bear",
+                        "toothbrush",
+                        "hair dryer",],
+        "living room": ["chair",
+                        "potted plant",
+                        "table",
+                        "sofa",
+                        "tv",
+                        "tv controller",
+                        "vase",
+                        "clock"],
+        "kitchen":["banana",
+                    "broccoli",
+                    "apple",
+                    "orange",
+                    "carrots",
+                    "microwave",
+                    "toaster",
+                    "fridge",
+                    "oven",
+                    "sink",
+                    "scissor"],
+        "sports room":["frisbee",
+                        "snowboard",
+                        "kite",
+                        "baseball glove",
+                        "surf board",
+                        "skis",
+                        "football",
+                        "soccer",
+                        "baseball",
+                        "baseball",
+                        "skateboard",
+                        "tennis racket"],
+        "zoo":["birds",
+                "dogs",
+                "sheep",
+                "elephant",
+                "zebra",
+                "cat",
+                "horse",
+                "cow",
+                "bear",
+                "giraffe"],
+        "airport":["bike",
+                    "motorcycle",
+                    "bus",
+                    "truck",
+                    "car",
+                    "airplane",
+                    "train",
+                    "sandwich",
+                    "hotdog",
+                    "donut",
+                    "pizza",
+                    "cake"]
+    ];
+    
     
     
     
@@ -111,5 +180,20 @@ class EnviornmentModel: NSObject {
         return difficulty[diff]!
     }
     
+    func getTimeWithRooms(room: String) ->Int {
+        return time[room]!
+    }
+    
+    func getHighScoreWithRooms(room: String) ->Int{
+        return startingHighscores[room]!
+    }
+    
+    func getRemainingItemsWithRooms(room: String) ->String{
+        var str = ""
+        for element in startingItemsNotFound[room]!{
+            str = str + element + " "
+        }
+        return str;
+    }
 
 }

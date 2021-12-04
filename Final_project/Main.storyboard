@@ -11,7 +11,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="ARScavengerHunt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,7 +30,6 @@
                                     <segment title="Easy"/>
                                     <segment title="Medium"/>
                                     <segment title="Hard"/>
-                                    <segment title="Impossible"/>
                                 </segments>
                                 <connections>
                                     <action selector="changeDifficulty:" destination="BYZ-38-t0r" eventType="valueChanged" id="HO2-Nt-OgW"/>
@@ -90,7 +89,7 @@
         <!--Game Ready View Controller-->
         <scene sceneID="iAg-R0-mFj">
             <objects>
-                <viewController id="Pnf-4i-rPN" customClass="GameReadyViewController" customModule="ARScavengerHunt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pnf-4i-rPN" customClass="GameReadyViewController" customModule="Final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gBL-af-utX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -126,6 +125,13 @@
                                     <segue destination="FaM-Ii-oJf" kind="presentation" identifier="goToGame" modalPresentationStyle="fullScreen" id="Kbc-VE-ht7"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfm-f5-go1">
+                                <rect key="frame" x="186" y="438" width="47" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PaF-eF-ovM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -136,6 +142,7 @@
                         <outlet property="items" destination="nQg-50-rhz" id="alZ-4G-ia0"/>
                         <outlet property="locations" destination="Hzq-us-AZi" id="n2I-tO-stC"/>
                         <outlet property="readyButton" destination="Rwh-FP-SMU" id="Yvg-W2-ebP"/>
+                        <outlet property="time" destination="Bfm-f5-go1" id="EGq-re-AgM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd2-wg-amQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -145,7 +152,7 @@
         <!--Game View Controller-->
         <scene sceneID="Sq4-2q-0OT">
             <objects>
-                <viewController id="FaM-Ii-oJf" customClass="GameViewController" customModule="ARScavengerHunt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FaM-Ii-oJf" customClass="GameViewController" customModule="Final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o2n-gJ-Fhp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,7 +196,7 @@
         <!--Finish Screen View Controller-->
         <scene sceneID="aam-u0-bDo">
             <objects>
-                <viewController id="qrO-h3-wXX" customClass="FinishScreenViewController" customModule="ARScavengerHunt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qrO-h3-wXX" customClass="FinishScreenViewController" customModule="Final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jcz-sO-jaV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

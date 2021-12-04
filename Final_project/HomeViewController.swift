@@ -24,8 +24,6 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             return mediumRooms.count
         case 2:
             return hardRooms.count
-        case 3:
-            return impossibleRooms.count
         default:
             return 0
         }
@@ -39,8 +37,6 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             return mediumRooms[row]
         case 2:
             return hardRooms[row]
-        case 3:
-            return impossibleRooms[row]
         default:
             return ""
         }
@@ -55,7 +51,6 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     var easyRooms: [String] = [String]()
     var mediumRooms: [String] = [String]()
     var hardRooms: [String] = [String]()
-    var impossibleRooms: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,9 +58,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         self.room.delegate = self
         self.room.dataSource = self
         easyRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "easy")
-        mediumRooms = ["Bathroom", "Attic"]
-        hardRooms = ["Garage", "Garden"]
-        impossibleRooms = ["Museum", "University"]
+        mediumRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "medium")
+        hardRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "hard")
         self.setProgress(val: 0.9)
         // Do any additional setup after loading the view.
     }
@@ -92,8 +86,6 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             selectedValue = mediumRooms[room.selectedRow(inComponent: 0)]
         case 2:
             selectedValue = hardRooms[room.selectedRow(inComponent: 0)]
-        case 3:
-            selectedValue = impossibleRooms[room.selectedRow(inComponent: 0)]
         default:
             selectedValue = ""
         }
@@ -108,6 +100,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     @IBAction func reset(_ sender: UIButton) {
 //        reset
+        PlayerModel.shared.resetPlayer();
     }
     
     func setProgress(val: Float){

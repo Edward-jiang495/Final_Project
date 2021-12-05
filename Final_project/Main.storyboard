@@ -181,9 +181,19 @@
                                     <segue destination="qrO-h3-wXX" kind="presentation" identifier="goToEndGame" modalPresentationStyle="fullScreen" id="xiG-19-WvK"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYY-sH-Q4z">
+                                <rect key="frame" x="149" y="465" width="117" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Show items "/>
+                                <connections>
+                                    <action selector="showItems:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="P4y-wP-j1x"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hnc-na-gAV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                     </view>
                     <connections>
                         <outlet property="timerLabel" destination="eQD-86-LEg" id="ktZ-6i-vco"/>

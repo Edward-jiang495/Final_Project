@@ -19,9 +19,14 @@ class GameReadyViewController: UIViewController {
         super.viewDidAppear(true)
         var room = GameModel.shared.getRoom()
         locations.text = room
-        time.text = String(EnviornmentModel.shared.getTimeWithRooms(room: room)) + "seconds "
+        time.text = String(EnviornmentModel.shared.getTimeWithRooms(room: room)) + " seconds "
         highScore.text = "Highscore: " + String(EnviornmentModel.shared.getHighScoreWithRooms(room: room))
-        items.text = EnviornmentModel.shared.getRemainingItemsWithRooms(room: room)
+        var remainingitems = EnviornmentModel.shared.getRemainingItemsWithRooms(room: room)
+        var remainingitemstxt = "";
+        for element in remainingitems{
+            remainingitemstxt = remainingitemstxt + " " + element
+        }
+        items.text = remainingitemstxt
         
 
     }

@@ -188,12 +188,8 @@ class EnviornmentModel: NSObject {
         return startingHighscores[room]!
     }
     
-    func getRemainingItemsWithRooms(room: String) ->String{
-        var str = ""
-        for element in startingItemsNotFound[room]!{
-            str = str + element + " "
-        }
-        return str;
+    func getRemainingItemsWithRooms(room: String) ->[String]{
+        return startingItemsNotFound[room]!
     }
 
 }

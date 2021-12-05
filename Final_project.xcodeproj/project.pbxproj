@@ -22,6 +22,7 @@
 		ABB5C34E275712F00021C984 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C34D275712F00021C984 /* GameViewController.swift */; };
 		ABB5C350275712F40021C984 /* FinishScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */; };
 		ABB5C352275BCDE70021C984 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C351275BCDE70021C984 /* GameModel.swift */; };
+		ABB5C356275D5CE90021C984 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C355275D5CE90021C984 /* CustomTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		ABB5C34D275712F00021C984 /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishScreenViewController.swift; sourceTree = "<group>"; };
 		ABB5C351275BCDE70021C984 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
+		ABB5C355275D5CE90021C984 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +92,7 @@
 				ABB5C34D275712F00021C984 /* GameViewController.swift */,
 				ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */,
 				ABB5C351275BCDE70021C984 /* GameModel.swift */,
+				ABB5C355275D5CE90021C984 /* CustomTableViewCell.swift */,
 			);
 			path = Final_project;
 			sourceTree = "<group>";
@@ -177,6 +180,7 @@
 				ABB5C348275712E30021C984 /* VideoAnalgesic.swift in Sources */,
 				ABB5C32D2757122D0021C984 /* SceneDelegate.swift in Sources */,
 				ABB5C34A275712E70021C984 /* HomeViewController.swift in Sources */,
+				ABB5C356275D5CE90021C984 /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -191,5 +191,9 @@ class EnviornmentModel: NSObject {
     func getRemainingItemsWithRooms(room: String) ->[String]{
         return startingItemsNotFound[room]!
     }
+    
+    func getStartingItemsFoundWithRioom(room: String) ->[String]{
+        return startingItemsFound[room]!
+    }
 
 }

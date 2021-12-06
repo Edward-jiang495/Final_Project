@@ -5,9 +5,9 @@
 //  Created by Zhengran Jiang on 11/24/21.
 //
 //question to ask
-//perform segue without buttn
+//perform segue without button
 //gesture detection with menu
-//change table to a view 
+//prevent user from over swiping in table
 
 import UIKit
 

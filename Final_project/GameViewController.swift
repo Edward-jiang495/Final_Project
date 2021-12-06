@@ -7,18 +7,25 @@
 //
 
 import UIKit
+import AVFoundation
 
-class GameViewController: UIViewController {
+
+class GameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var transparentView = UIView()
     var tableView = UITableView()
     var height:CGFloat = 250
-    
+    var videoManager:VideoAnalgesic! = nil
     var room:String = GameModel.shared.getRoom();
-    var itemsToFound:[String] = EnviornmentModel.shared.getRemainingItemsWithRooms(room: GameModel.shared.getRoom());
+    var itemsToFind:[String] = EnviornmentModel.shared.getRemainingItemsWithRooms(room: GameModel.shared.getRoom());
+    var itemsFound:[String] = EnviornmentModel.shared.getRemainingItemsWithRooms(room: GameModel.shared.getRoom());
+    var totalItems:[String] = []
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        totalItems = itemsToFind + itemsFound
         timeLeft = EnviornmentModel.shared.getTimeWithRooms(room: room)
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
         
@@ -26,7 +33,15 @@ class GameViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "Cell")
-        // Do any additional setup after loading the view.
+        
+        self.videoManager = VideoAnalgesic(mainView: self.view)
+                self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.front)
+                
+//                self.videoManager.setProcessingBlock(newProcessBlock: self.processImage)
+                
+        if !videoManager.isRunning{
+            videoManager.start()
+        }
     }
     var timer: Timer?
     lazy var timeLeft = 10
@@ -60,6 +75,23 @@ class GameViewController: UIViewController {
     }
     
     
+    @IBAction func detectItem(_ sender: UIButton) {
+//        this function is for capturing image item
+        var item:String = "person"
+        if let index = totalItems.firstIndex(of: item) {
+            var element = totalItems.remove(at: index)
+            element = element + "⭐"
+//            remove from beginning and append to the end
+//            WITH A STAR
+            totalItems.append(element)
+            tableView.reloadData()
+//            reload table
+        }
+//        the item that was found
+        
+        
+    }
+    
     @IBAction func showItems(_ sender: UIButton) {
         let window = UIApplication.shared.keyWindow
         transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
@@ -84,6 +116,19 @@ class GameViewController: UIViewController {
         
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return number of items in room
+        return totalItems.count
+
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell else{
+            fatalError("unable to deque cell")
+        }
+        cell.label.text = totalItems[indexPath.row]
+        return cell
+    }
+    
     @objc func onClickTransparentView() {
            let screensize = UIScreen.main.bounds.size
            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
@@ -104,23 +149,23 @@ class GameViewController: UIViewController {
 
 }
 
-extension GameViewController: UITableViewDataSource, UITableViewDelegate{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return number of items in room
-        return EnviornmentModel.shared.getRemainingItemsWithRooms(room: self.room).count
-
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell else{
-            fatalError("unable to deque cell")
-        }
-        cell.label.text = self.itemsToFound[indexPath.row]
-        return cell
-    }
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 50
+//extension GameViewController: UITableViewDataSource, UITableViewDelegate{
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+////        return number of items in room
+//        return EnviornmentModel.shared.getRemainingItemsWithRooms(room: self.room).count
+//
 //    }
-    
-    
-}
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell else{
+//            fatalError("unable to deque cell")
+//        }
+//        cell.label.text = self.itemsToFound[indexPath.row]
+//        return cell
+//    }
+////    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+////        return 50
+////    }
+//
+//
+//}

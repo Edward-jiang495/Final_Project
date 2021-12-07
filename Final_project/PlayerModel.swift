@@ -26,7 +26,7 @@ class PlayerModel: NSObject {
                 "itemsFound": EnviornmentModel.shared.startingItemsFound
             ]
         );
-//        loadLocalStorage()
+        loadLocalStorage()
     
         
        

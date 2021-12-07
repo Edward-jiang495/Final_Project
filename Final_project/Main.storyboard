@@ -158,7 +158,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPa-UA-Wc6">
-                                <rect key="frame" x="159" y="576" width="107" height="31"/>
+                                <rect key="frame" x="20" y="459" width="107" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Detect Items"/>
@@ -173,17 +173,29 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYY-sH-Q4z">
-                                <rect key="frame" x="154" y="466" width="117" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03c-uQ-LPt">
+                                <rect key="frame" x="173" y="459" width="68" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Show items "/>
+                                <buttonConfiguration key="configuration" style="plain" title="Toggle"/>
                                 <connections>
-                                    <action selector="showItems:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="P4y-wP-j1x"/>
+                                    <action selector="toggleCamera:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="9lx-Fg-4yG"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Object" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoY-Ze-HOC">
+                                <rect key="frame" x="77" y="578" width="246" height="72"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Cjf-aP-8Nq" appends="YES" id="asD-xn-9Ac"/>
+                                </connections>
+                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYU-av-YBP">
-                                <rect key="frame" x="179" y="653" width="66" height="31"/>
+                                <rect key="frame" x="291" y="459" width="66" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Quit"/>
@@ -198,10 +210,16 @@
                         <gestureRecognizers/>
                     </view>
                     <connections>
+                        <outlet property="firstThreeObjectsToFind" destination="BoY-Ze-HOC" id="Ozg-dn-PCb"/>
                         <outlet property="timerLabel" destination="eQD-86-LEg" id="ktZ-6i-vco"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3W2-GN-tFS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="up" id="Cjf-aP-8Nq">
+                    <connections>
+                        <action selector="swipe:" destination="FaM-Ii-oJf" id="MjM-4L-8pX"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1937.68115942029" y="83.705357142857139"/>
         </scene>
@@ -251,6 +269,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

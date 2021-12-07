@@ -84,7 +84,9 @@ class VideoAnalgesic: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, AV
         metalLayer.pixelFormat = .bgra8Unorm
         metalLayer.framebufferOnly = false
         metalLayer.transform = CATransform3DMakeAffineTransform(transform)
-        metalLayer.frame = CGRect(origin: .zero, size: mainView.layer.frame.size)//mainView.layer.frame
+        var size = mainView.layer.frame.size
+        size.height = size.height - 100
+        metalLayer.frame = CGRect(origin: .zero, size: size)//mainView.layer.frame
         //metalLayer.position = CGPoint(x: 0.0, y: 0.0)
         mainView.layer.insertSublayer(metalLayer, at:0)
         

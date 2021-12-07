@@ -19,6 +19,13 @@ class PlayerModel: NSObject {
     
     private override init() {
         super.init();
+        UserDefaults.standard.register(
+            defaults: [
+                "highScorePerRoom": EnviornmentModel.shared.startingHighscores,
+                "completedRooms": [],
+                "itemsFound": EnviornmentModel.shared.startingItemsFound
+            ]
+        );
 //        loadLocalStorage()
     
         

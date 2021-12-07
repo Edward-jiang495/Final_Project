@@ -104,11 +104,11 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func detectItem(_ sender: UIButton) {
 //        this function is for capturing image item
         var item:String = "person"
-        
         if let index = itemsToFind.firstIndex(of:item){
             let element = itemsToFind.remove(at: index)
             itemsFound.append(element)
         }
+        PlayerModel.shared.addFoundItem(room: room, itemFound: item)
         
         if let index = totalItems.firstIndex(of: item) {
             var element = totalItems.remove(at: index)
@@ -196,6 +196,13 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         cell.label.text = totalItems[indexPath.row]
         return cell
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? FinishScreenViewController{
+            vc.timeRemained = timeLeft
+        }
     }
     
     @objc func onClickTransparentView() {

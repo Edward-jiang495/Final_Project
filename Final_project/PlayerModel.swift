@@ -83,5 +83,24 @@ class PlayerModel: NSObject {
         return Double(totalItemsFound)/Double(EnviornmentModel.shared.locations.keys.count);
     }
     
+    func getHighScoreWithRoom(room:String) -> Int{
+        return highScorePerRoom[room]!
+    }
+    
+    func getRemainingItemsWithRoom(room:String) ->[String]{
+        var items = EnviornmentModel.shared.getItemsWithRoom(room: room)
+        var itemsNotFound:[String] = []
+        for element in items{
+            if !(itemsFound[room]?.contains(element))!{
+                itemsNotFound.append(element)
+            }
+        }
+        return itemsNotFound
+    }
+    
+    func getStartingItemsFoundWithRoom(room: String) ->[String]{
+        return itemsFound[room]!
+    }
+    
     
 }

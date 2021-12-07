@@ -180,20 +180,24 @@ class EnviornmentModel: NSObject {
         return difficulty[diff]!
     }
     
+    func getItemsWithRoom(room:String)->[String]{
+        return locations[room]!
+    }
+    
     func getTimeWithRooms(room: String) ->Int {
         return time[room]!
     }
     
-    func getHighScoreWithRooms(room: String) ->Int{
-        return startingHighscores[room]!
-    }
-    
-    func getRemainingItemsWithRooms(room: String) ->[String]{
-        return startingItemsNotFound[room]!
-    }
-    
-    func getStartingItemsFoundWithRioom(room: String) ->[String]{
-        return startingItemsFound[room]!
-    }
+//    func getHighScoreWithRooms(room: String) ->Int{
+//        return startingHighscores[room]!
+//    }
+//    
+//    func getRemainingItemsWithRooms(room: String) ->[String]{
+//        return startingItemsNotFound[room]!
+//    }
+//    
+//    func getStartingItemsFoundWithRioom(room: String) ->[String]{
+//        return startingItemsFound[room]!
+//    }
 
 }

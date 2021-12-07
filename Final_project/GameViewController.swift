@@ -17,8 +17,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var height:CGFloat = 250
     var videoManager:VideoAnalgesic! = nil
     var room:String = GameModel.shared.getRoom();
-    var itemsToFind:[String] = EnviornmentModel.shared.getRemainingItemsWithRooms(room: GameModel.shared.getRoom());
-    var itemsFound:[String] = EnviornmentModel.shared.getRemainingItemsWithRooms(room: GameModel.shared.getRoom());
+    var itemsToFind:[String] = PlayerModel.shared.getRemainingItemsWithRoom(room: GameModel.shared.getRoom());
+    var itemsFound:[String] = PlayerModel.shared.getStartingItemsFoundWithRoom(room: GameModel.shared.getRoom());
     var totalItems:[String] = []
     var isFrontCamera:Bool = false;
     

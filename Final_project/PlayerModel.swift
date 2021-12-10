@@ -80,7 +80,12 @@ class PlayerModel: NSObject {
         for (_,items) in itemsFound {
             totalItemsFound += items.count;
         }
-        return Double(totalItemsFound)/Double(EnviornmentModel.shared.locations.keys.count);
+        
+        var result = Double(totalItemsFound)/Double(EnviornmentModel.shared.locations.keys.count) * 100
+//        convert to percentage 
+        result = Double(round(100 * result) / 100);
+//        coerce to 2 decimal place
+        return result;
     }
     
     func getHighScoreWithRoom(room:String) -> Int{

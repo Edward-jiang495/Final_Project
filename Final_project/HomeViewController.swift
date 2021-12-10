@@ -124,6 +124,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
             switch action.style{
                 case .default:
+                PlayerModel.shared.resetPlayer()
                 print("default")
                 
                 case .cancel:
@@ -140,8 +141,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     }
     
     func setProgress(val: Float){
-        self.progressBar.setProgress(val, animated: true)
-        self.progressLabel.text = "Player's Progress: "+String(100*val)+"%"
+        self.progressBar.setProgress(val/100.0, animated: true)
+        self.progressLabel.text = "Progress: "+String(val) + "%"
     }
     
 

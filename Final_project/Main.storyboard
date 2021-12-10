@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Snowy Christmas - Personal Use.otf">
+            <string>SnowyChristmas</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -16,16 +21,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AR Scavenger Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krl-G4-16j">
-                                <rect key="frame" x="87" y="104" width="240" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scavenger Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krl-G4-16j">
+                                <rect key="frame" x="87" y="79" width="240" height="26.5"/>
+                                <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
+                                <color key="textColor" red="1" green="0.84313725490196079" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8NS-P8-tSZ">
-                                <rect key="frame" x="27" y="169" width="361" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8NS-P8-tSZ">
+                                <rect key="frame" x="26" y="160.5" width="362" height="32"/>
                                 <segments>
                                     <segment title="Easy"/>
                                     <segment title="Medium"/>
@@ -36,43 +39,69 @@
                                     <action selector="difficulty:" destination="zU8-RV-Mu6" eventType="valueChanged" id="zTz-m3-aad"/>
                                 </connections>
                             </segmentedControl>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VvG-O6-LgA">
-                                <rect key="frame" x="114" y="570" width="186" height="4"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VvG-O6-LgA">
+                                <rect key="frame" x="93" y="570.5" width="228" height="4"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Players Progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3u-MD-G5s">
-                                <rect key="frame" x="87" y="489" width="230" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPf-Vf-XhW">
+                                <rect key="frame" x="0.0" y="227.5" width="414" height="216"/>
+                            </pickerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="icn-eb-ALu">
+                                <rect key="frame" x="93" y="460.5" width="228" height="31"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bV-MK-Ied">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Start" cornerStyle="fixed">
+                                            <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="18"/>
+                                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jhk-91-Ec0"/>
+                                            <segue destination="Pnf-4i-rPN" kind="presentation" modalPresentationStyle="fullScreen" id="8kp-Ox-gOc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfr-c8-aIX">
+                                        <rect key="frame" x="128" y="0.0" width="100" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Reset">
+                                            <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="18"/>
+                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zkj-2A-gfe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3u-MD-G5s">
+                                <rect key="frame" x="77" y="518.5" width="260" height="20"/>
+                                <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="30"/>
+                                <color key="textColor" systemColor="tintColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NPf-Vf-XhW">
-                                <rect key="frame" x="0.0" y="258" width="414" height="162"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bV-MK-Ied">
-                                <rect key="frame" x="133" y="450" width="138" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Start"/>
-                                <connections>
-                                    <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jhk-91-Ec0"/>
-                                    <segue destination="Pnf-4i-rPN" kind="presentation" modalPresentationStyle="fullScreen" id="8kp-Ox-gOc"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfr-c8-aIX">
-                                <rect key="frame" x="139" y="635" width="127" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Reset"/>
-                                <connections>
-                                    <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zkj-2A-gfe"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="NPf-Vf-XhW" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="7Gr-rt-LLK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="icn-eb-ALu" secondAttribute="trailing" constant="93" id="7j7-Gy-mfu"/>
+                            <constraint firstItem="icn-eb-ALu" firstAttribute="top" secondItem="NPf-Vf-XhW" secondAttribute="bottom" constant="17" id="A9I-iM-BgX"/>
+                            <constraint firstItem="icn-eb-ALu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="93" id="FmF-ed-rRW"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Krl-G4-16j" secondAttribute="trailing" constant="87" id="Gq4-yo-2yS"/>
+                            <constraint firstItem="VvG-O6-LgA" firstAttribute="top" secondItem="v3u-MD-G5s" secondAttribute="bottom" constant="32" id="KEu-Aw-pRP"/>
+                            <constraint firstItem="VvG-O6-LgA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="93" id="MY0-4A-tbk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="v3u-MD-G5s" secondAttribute="trailing" constant="77" id="PL1-lT-raF"/>
+                            <constraint firstItem="8NS-P8-tSZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="26" id="Rsr-0o-rca"/>
+                            <constraint firstItem="Krl-G4-16j" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="SbT-z2-Yvp"/>
+                            <constraint firstItem="NPf-Vf-XhW" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XHS-Vr-bVn"/>
+                            <constraint firstItem="Krl-G4-16j" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="XUw-FW-HXg"/>
+                            <constraint firstItem="NPf-Vf-XhW" firstAttribute="top" secondItem="8NS-P8-tSZ" secondAttribute="bottom" constant="36" id="cNr-j8-VTI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VvG-O6-LgA" secondAttribute="trailing" constant="93" id="fcB-lX-Udn"/>
+                            <constraint firstItem="v3u-MD-G5s" firstAttribute="top" secondItem="icn-eb-ALu" secondAttribute="bottom" constant="27" id="lWD-aN-Vg4"/>
+                            <constraint firstItem="v3u-MD-G5s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="77" id="slf-hb-P6Y"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="8NS-P8-tSZ" secondAttribute="trailing" constant="26" id="u9P-R3-xCh"/>
+                            <constraint firstItem="8NS-P8-tSZ" firstAttribute="top" secondItem="Krl-G4-16j" secondAttribute="bottom" constant="55" id="zmW-h3-HHe"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="difficulty" destination="8NS-P8-tSZ" id="UZc-0q-Pok"/>
@@ -94,47 +123,56 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Items:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQg-50-rhz">
-                                <rect key="frame" x="101" y="248" width="213" height="103"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Location: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzq-us-AZi">
-                                <rect key="frame" x="92" y="359" width="231" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwh-FP-SMU">
-                                <rect key="frame" x="175" y="593" width="65" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Ready"/>
-                                <connections>
-                                    <action selector="ready:" destination="Pnf-4i-rPN" eventType="touchUpInside" id="rIn-8h-HyL"/>
-                                    <segue destination="FaM-Ii-oJf" kind="presentation" identifier="goToGame" modalPresentationStyle="fullScreen" id="Kbc-VE-ht7"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfm-f5-go1">
-                                <rect key="frame" x="161" y="472" width="97" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="High Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPc-SJ-X04">
-                                <rect key="frame" x="101" y="202" width="213" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="yfJ-yf-lIF">
+                                <rect key="frame" x="0.0" y="144" width="414" height="618"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPc-SJ-X04">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="30"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzq-us-AZi">
+                                        <rect key="frame" x="0.0" y="84" width="414" height="20"/>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="30"/>
+                                        <color key="textColor" systemColor="linkColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfm-f5-go1">
+                                        <rect key="frame" x="0.0" y="168" width="414" height="20"/>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="30"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQg-50-rhz">
+                                        <rect key="frame" x="0.0" y="252" width="414" height="20"/>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="30"/>
+                                        <color key="textColor" systemColor="linkColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwh-FP-SMU">
+                                        <rect key="frame" x="0.0" y="336" width="414" height="282"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Ready">
+                                            <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="18"/>
+                                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="ready:" destination="Pnf-4i-rPN" eventType="touchUpInside" id="rIn-8h-HyL"/>
+                                            <segue destination="FaM-Ii-oJf" kind="presentation" identifier="goToGame" modalPresentationStyle="fullScreen" id="Kbc-VE-ht7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PaF-eF-ovM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="yfJ-yf-lIF" firstAttribute="leading" secondItem="PaF-eF-ovM" secondAttribute="leading" id="4bn-94-5wh"/>
+                            <constraint firstItem="PaF-eF-ovM" firstAttribute="bottom" secondItem="yfJ-yf-lIF" secondAttribute="bottom" constant="100" id="bsW-xU-uN7"/>
+                            <constraint firstItem="PaF-eF-ovM" firstAttribute="trailing" secondItem="yfJ-yf-lIF" secondAttribute="trailing" id="hoG-K4-h5A"/>
+                            <constraint firstItem="yfJ-yf-lIF" firstAttribute="top" secondItem="PaF-eF-ovM" secondAttribute="top" constant="100" id="iMo-7S-fZg"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hwi-bv-0dt"/>
                     <connections>
@@ -157,36 +195,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPa-UA-Wc6">
-                                <rect key="frame" x="20" y="459" width="107" height="31"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQD-86-LEg">
+                                <rect key="frame" x="84" y="84" width="246" height="26.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Detect Items"/>
-                                <connections>
-                                    <action selector="detectItem:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="xHd-Lc-tul"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQD-86-LEg">
-                                <rect key="frame" x="186" y="131" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
+                                <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03c-uQ-LPt">
-                                <rect key="frame" x="173" y="459" width="68" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Toggle"/>
-                                <connections>
-                                    <action selector="toggleCamera:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="9lx-Fg-4yG"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" text="Object" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoY-Ze-HOC">
-                                <rect key="frame" x="77" y="578" width="246" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="OTo-Us-Cun">
+                                <rect key="frame" x="0.0" y="630" width="414" height="32"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03c-uQ-LPt">
+                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="32"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Toggle">
+                                            <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="19"/>
+                                            <color key="baseForegroundColor" systemColor="systemOrangeColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="toggleCamera:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="9lx-Fg-4yG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OPa-UA-Wc6">
+                                        <rect key="frame" x="154.5" y="0.0" width="105" height="32"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Detect">
+                                            <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="19"/>
+                                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="detectItem:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="xHd-Lc-tul"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYU-av-YBP">
+                                        <rect key="frame" x="309.5" y="0.0" width="104.5" height="32"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Quit">
+                                            <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="19"/>
+                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="quit:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="S4x-l2-GFr"/>
+                                            <segue destination="qrO-h3-wXX" kind="presentation" identifier="goToEndGame" modalPresentationStyle="fullScreen" id="xiG-19-WvK"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Object" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BoY-Ze-HOC">
+                                <rect key="frame" x="80" y="812" width="254" height="50"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hLH-Fj-Et3"/>
+                                </constraints>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -194,20 +255,18 @@
                                     <outletCollection property="gestureRecognizers" destination="Cjf-aP-8Nq" appends="YES" id="asD-xn-9Ac"/>
                                 </connections>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYU-av-YBP">
-                                <rect key="frame" x="291" y="459" width="66" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Quit"/>
-                                <connections>
-                                    <action selector="quit:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="S4x-l2-GFr"/>
-                                    <segue destination="qrO-h3-wXX" kind="presentation" identifier="goToEndGame" modalPresentationStyle="fullScreen" id="xiG-19-WvK"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hnc-na-gAV"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="BoY-Ze-HOC" firstAttribute="top" secondItem="OTo-Us-Cun" secondAttribute="bottom" constant="150" id="Hti-nh-yCo"/>
+                            <constraint firstItem="OTo-Us-Cun" firstAttribute="leading" secondItem="Hnc-na-gAV" secondAttribute="leading" id="MhB-7W-pcL"/>
+                            <constraint firstAttribute="trailing" secondItem="OTo-Us-Cun" secondAttribute="trailing" id="qxP-nm-7Gz"/>
+                            <constraint firstItem="Hnc-na-gAV" firstAttribute="trailing" secondItem="BoY-Ze-HOC" secondAttribute="trailing" constant="80" id="uoy-kX-cRZ"/>
+                            <constraint firstItem="Hnc-na-gAV" firstAttribute="bottom" secondItem="BoY-Ze-HOC" secondAttribute="bottom" id="v4q-fu-xgb"/>
+                            <constraint firstItem="BoY-Ze-HOC" firstAttribute="leading" secondItem="Hnc-na-gAV" secondAttribute="leading" constant="80" id="zBj-CA-J3g"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="firstThreeObjectsToFind" destination="BoY-Ze-HOC" id="Ozg-dn-PCb"/>
@@ -231,53 +290,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Finish" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vd-cP-Fwu">
-                                <rect key="frame" x="186" y="180" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Items not found:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kc-QV-CU1">
-                                <rect key="frame" x="105" y="388" width="206" height="82"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygg-Qk-acw">
-                                <rect key="frame" x="143" y="478" width="149" height="87"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv5-zp-UfY">
-                                <rect key="frame" x="171" y="641" width="68" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Replay"/>
-                                <connections>
-                                    <action selector="replay:" destination="qrO-h3-wXX" eventType="touchUpInside" id="nat-ND-Nmx"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Items Found " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFn-Ky-HYq">
-                                <rect key="frame" x="159" y="300" width="132" height="68"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time remaining " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuP-oA-YSY">
-                                <rect key="frame" x="133" y="225" width="185" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cLO-gy-91G">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vd-cP-Fwu">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="uWT-9d-XS4"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
+                                        <color key="textColor" systemColor="linkColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygg-Qk-acw">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="vPu-3l-aRT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items Found " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFn-Ky-HYq">
+                                        <rect key="frame" x="0.0" y="100" width="414" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="rEr-Rz-PlV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items not found:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kc-QV-CU1">
+                                        <rect key="frame" x="0.0" y="250" width="414" height="150"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="SQe-DV-gd3"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time remaining " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuP-oA-YSY">
+                                        <rect key="frame" x="0.0" y="400" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="hDQ-hd-VAW"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv5-zp-UfY">
+                                        <rect key="frame" x="0.0" y="450" width="414" height="368"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Replay">
+                                            <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="20"/>
+                                            <color key="baseForegroundColor" systemColor="systemGreenColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="replay:" destination="qrO-h3-wXX" eventType="touchUpInside" id="nat-ND-Nmx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="wFn-Ky-HYq" secondAttribute="trailing" id="3cD-Rk-sHe"/>
+                                    <constraint firstItem="7Kc-QV-CU1" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="6n3-rO-WV1"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Vd-cP-Fwu" secondAttribute="trailing" id="A4Y-D8-Lla"/>
+                                    <constraint firstItem="wFn-Ky-HYq" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="Q9y-Sy-Ngv"/>
+                                    <constraint firstItem="ygg-Qk-acw" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="b1M-pB-Kpi"/>
+                                    <constraint firstItem="KuP-oA-YSY" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="gc7-j2-ucP"/>
+                                    <constraint firstItem="2Vd-cP-Fwu" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="iCa-DZ-Vrk"/>
+                                    <constraint firstAttribute="trailing" secondItem="ygg-Qk-acw" secondAttribute="trailing" id="oLE-ib-Jal"/>
+                                    <constraint firstAttribute="trailing" secondItem="KuP-oA-YSY" secondAttribute="trailing" id="rsO-6c-a2X"/>
+                                    <constraint firstAttribute="trailing" secondItem="7Kc-QV-CU1" secondAttribute="trailing" id="sbi-wT-XPk"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oQv-U7-B3e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cLO-gy-91G" firstAttribute="leading" secondItem="oQv-U7-B3e" secondAttribute="leading" id="Dpf-au-66j"/>
+                            <constraint firstItem="oQv-U7-B3e" firstAttribute="trailing" secondItem="cLO-gy-91G" secondAttribute="trailing" id="GwS-8Q-ziv"/>
+                            <constraint firstItem="cLO-gy-91G" firstAttribute="top" secondItem="oQv-U7-B3e" secondAttribute="top" id="HA8-X5-Zsj"/>
+                            <constraint firstItem="oQv-U7-B3e" firstAttribute="bottom" secondItem="cLO-gy-91G" secondAttribute="bottom" id="NvW-VT-DkZ"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="itemsFound" destination="wFn-Ky-HYq" id="4tQ-Pd-7di"/>
@@ -295,8 +389,26 @@
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

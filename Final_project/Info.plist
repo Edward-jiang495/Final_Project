@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>PWHappyChristmas.ttf</string>
+		<string>Christmax Icons.ttf</string>
+		<string>Holiday Snowflakes Demo.ttf</string>
+		<string>Christmas Bless.ttf</string>
+		<string>Snowy Christmas - Personal Use.otf</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Test</string>
 	<key>UIApplicationSceneManifest</key>

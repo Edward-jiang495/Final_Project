@@ -28,6 +28,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         totalItems = itemsToFind + itemsFound
         timeLeft = EnviornmentModel.shared.getTimeWithRooms(room: room)
+        timerLabel.text = String(timeLeft)
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
         
         var objToFind3 = ""

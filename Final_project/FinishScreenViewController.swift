@@ -15,11 +15,12 @@ class FinishScreenViewController: UIViewController {
         super.viewDidLoad()
         timeRemaining.text = String(timeRemained) + " seconds remaining"
         var itemsfound = PlayerModel.shared.getStartingItemsFoundWithRoom(room: GameModel.shared.getRoom())
-        var itemsfound_str = itemsfound.joined(separator:", ")
-        itemsFound.text = itemsfound_str
+        var itemsfound_str = itemsfound.joined(separator:" > ")
+//        > is the snow man in snowy chrismas font 
+        itemsFound.text = "Founded: " + itemsfound_str
         var itemsnotfound = PlayerModel.shared.getRemainingItemsWithRoom(room: GameModel.shared.getRoom())
-        var itemsnotfound_str = itemsnotfound.joined(separator:", ")
-        itemsNotFound.text = itemsnotfound_str
+        var itemsnotfound_str = itemsnotfound.joined(separator:" > ")
+        itemsNotFound.text = "Not founded: " + itemsnotfound_str
 
         // Do any additional setup after loading the view.
     }

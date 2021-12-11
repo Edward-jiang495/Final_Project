@@ -34,6 +34,7 @@
                                     <segment title="Medium"/>
                                     <segment title="Hard"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" systemColor="systemGreenColor"/>
                                 <connections>
                                     <action selector="changeDifficulty:" destination="BYZ-38-t0r" eventType="valueChanged" id="HO2-Nt-OgW"/>
                                     <action selector="difficulty:" destination="zU8-RV-Mu6" eventType="valueChanged" id="zTz-m3-aad"/>

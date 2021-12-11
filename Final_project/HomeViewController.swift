@@ -66,6 +66,13 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         hardRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "hard")
         var found = PlayerModel.shared.percentNotFound()
         self.setProgress(val:  Float(found))
+        
+//        setting the font for ui segment control dynamically
+//        why? because i dont know how to do it on the storyboard
+        let attr = NSDictionary(object: UIFont(name: "PWJoyeuxNoel", size: 18.0)!, forKey: NSAttributedString.Key.font as NSCopying)
+        UISegmentedControl.appearance().setTitleTextAttributes(attr as! [NSAttributedString.Key : Any] , for: [])
+//        UIPickerView.appearance().set
+
         // Do any additional setup after loading the view.
     }
     
@@ -143,6 +150,30 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     func setProgress(val: Float){
         self.progressBar.setProgress(val/100.0, animated: true)
         self.progressLabel.text = "Progress: "+String(val) + "%"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "PWJoyeuxNoel", size: 18)
+            pickerLabel?.textAlignment = .center
+        }
+        switch difficulty.selectedSegmentIndex {
+        case 0:
+            pickerLabel?.text = easyRooms[row]
+            break
+        case 1:
+            pickerLabel?.text = mediumRooms[row]
+            break
+        case 2:
+            pickerLabel?.text = hardRooms[row]
+        default:
+            break
+        }
+        pickerLabel?.textColor = UIColor.systemGreen
+
+        return pickerLabel!
     }
     
 

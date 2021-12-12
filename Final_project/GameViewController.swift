@@ -25,6 +25,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: false)
         
         totalItems = itemsToFind + itemsFound
         timeLeft = EnviornmentModel.shared.getTimeWithRooms(room: room)

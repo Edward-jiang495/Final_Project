@@ -63,6 +63,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         mediumRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "medium")
         hardRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "hard")
         let found = PlayerModel.shared.percentNotFound()
+        print(found)
         self.setProgress(val:  Float(found))
         
 //        setting the font for ui segment control dynamically
@@ -73,6 +74,14 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         addSnowAnimation()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        let found = PlayerModel.shared.percentNotFound()
+        print(found)
+        self.setProgress(val:  Float(found))
+        
+        
+    }
 
     
     func addSnowAnimation(){
@@ -147,6 +156,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             switch action.style{
                 case .default:
                 PlayerModel.shared.resetPlayer()
+                self.setProgress(val: 0)
                 print("RESET")
                 case .cancel:
                 print("cancel")

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TCM-wr-OOT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
@@ -16,19 +16,21 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Final_project" customModuleProvider="target" sceneMemberID="viewController">
+                <exit id="zU8-RV-Mu6" userLabel="Exit" sceneMemberID="exit"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="_Final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scavenger Hunt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Krl-G4-16j">
-                                <rect key="frame" x="87" y="79" width="240" height="26.5"/>
+                                <rect key="frame" x="87" y="123" width="240" height="26.5"/>
                                 <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
                                 <color key="textColor" red="1" green="0.84313725490196079" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="8NS-P8-tSZ">
-                                <rect key="frame" x="26" y="160.5" width="362" height="32"/>
+                                <rect key="frame" x="26" y="204.5" width="362" height="32"/>
                                 <segments>
                                     <segment title="Easy"/>
                                     <segment title="Medium"/>
@@ -41,13 +43,13 @@
                                 </connections>
                             </segmentedControl>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VvG-O6-LgA">
-                                <rect key="frame" x="93" y="570.5" width="228" height="4"/>
+                                <rect key="frame" x="93" y="614.5" width="228" height="4"/>
                             </progressView>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NPf-Vf-XhW">
-                                <rect key="frame" x="0.0" y="227.5" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="271.5" width="414" height="216"/>
                             </pickerView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="icn-eb-ALu">
-                                <rect key="frame" x="93" y="460.5" width="228" height="31"/>
+                                <rect key="frame" x="93" y="504.5" width="228" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8bV-MK-Ied">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="31"/>
@@ -58,7 +60,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="start:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jhk-91-Ec0"/>
-                                            <segue destination="Pnf-4i-rPN" kind="presentation" modalPresentationStyle="fullScreen" id="8kp-Ox-gOc"/>
+                                            <segue destination="Pnf-4i-rPN" kind="show" id="gow-Su-GHk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfr-c8-aIX">
@@ -75,7 +77,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Progress" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v3u-MD-G5s">
-                                <rect key="frame" x="77" y="518.5" width="260" height="20"/>
+                                <rect key="frame" x="77" y="562.5" width="260" height="20"/>
                                 <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="30"/>
                                 <color key="textColor" systemColor="tintColor"/>
                                 <nil key="highlightedColor"/>
@@ -104,6 +106,7 @@
                             <constraint firstItem="8NS-P8-tSZ" firstAttribute="top" secondItem="Krl-G4-16j" secondAttribute="bottom" constant="55" id="zmW-h3-HHe"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="po2-PN-nAU"/>
                     <connections>
                         <outlet property="difficulty" destination="8NS-P8-tSZ" id="UZc-0q-Pok"/>
                         <outlet property="progressBar" destination="VvG-O6-LgA" id="ZSK-gS-xcx"/>
@@ -111,21 +114,19 @@
                         <outlet property="room" destination="NPf-Vf-XhW" id="cQn-lI-N5E"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <exit id="zU8-RV-Mu6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="34.782608695652179" y="83.705357142857139"/>
+            <point key="canvasLocation" x="944.92753623188412" y="83.705357142857139"/>
         </scene>
         <!--Game Ready View Controller-->
         <scene sceneID="iAg-R0-mFj">
             <objects>
-                <viewController id="Pnf-4i-rPN" customClass="GameReadyViewController" customModule="Final_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Pnf-4i-rPN" customClass="GameReadyViewController" customModule="_Final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gBL-af-utX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="yfJ-yf-lIF">
-                                <rect key="frame" x="0.0" y="144" width="414" height="618"/>
+                                <rect key="frame" x="0.0" y="188" width="414" height="574"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPc-SJ-X04">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
@@ -152,7 +153,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwh-FP-SMU">
-                                        <rect key="frame" x="0.0" y="336" width="414" height="282"/>
+                                        <rect key="frame" x="0.0" y="336" width="414" height="238"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Ready">
                                             <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="18"/>
@@ -160,7 +161,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="ready:" destination="Pnf-4i-rPN" eventType="touchUpInside" id="rIn-8h-HyL"/>
-                                            <segue destination="FaM-Ii-oJf" kind="presentation" identifier="goToGame" modalPresentationStyle="fullScreen" id="Kbc-VE-ht7"/>
+                                            <segue destination="FaM-Ii-oJf" kind="show" identifier="gotoGame" id="3sd-Ua-Wal"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -186,12 +187,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nd2-wg-amQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911.59420289855075" y="83.705357142857139"/>
+            <point key="canvasLocation" x="1821.7391304347827" y="83.705357142857139"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="Sq4-2q-0OT">
             <objects>
-                <viewController id="FaM-Ii-oJf" customClass="GameViewController" customModule="Final_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FaM-Ii-oJf" customClass="GameViewController" customModule="_Final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="o2n-gJ-Fhp">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,7 +238,7 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="quit:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="S4x-l2-GFr"/>
-                                            <segue destination="qrO-h3-wXX" kind="presentation" identifier="goToEndGame" modalPresentationStyle="fullScreen" id="xiG-19-WvK"/>
+                                            <segue destination="qrO-h3-wXX" kind="show" identifier="goToEndGame" id="dOm-PK-dPE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -269,6 +270,7 @@
                             <constraint firstItem="BoY-Ze-HOC" firstAttribute="leading" secondItem="Hnc-na-gAV" secondAttribute="leading" constant="80" id="zBj-CA-J3g"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="mK3-ks-E5V"/>
                     <connections>
                         <outlet property="firstThreeObjectsToFind" destination="BoY-Ze-HOC" id="Ozg-dn-PCb"/>
                         <outlet property="timerLabel" destination="eQD-86-LEg" id="ktZ-6i-vco"/>
@@ -281,18 +283,18 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1937.68115942029" y="83.705357142857139"/>
+            <point key="canvasLocation" x="2847.826086956522" y="83.705357142857139"/>
         </scene>
         <!--Finish Screen View Controller-->
         <scene sceneID="aam-u0-bDo">
             <objects>
-                <viewController id="qrO-h3-wXX" customClass="FinishScreenViewController" customModule="Final_project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qrO-h3-wXX" customClass="FinishScreenViewController" customModule="_Final_project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jcz-sO-jaV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cLO-gy-91G">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vd-cP-Fwu">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -340,14 +342,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv5-zp-UfY">
-                                        <rect key="frame" x="0.0" y="450" width="414" height="368"/>
+                                        <rect key="frame" x="0.0" y="450" width="414" height="324"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Replay">
+                                        <buttonConfiguration key="configuration" style="plain" title="Home">
                                             <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="20"/>
                                             <color key="baseForegroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="replay:" destination="qrO-h3-wXX" eventType="touchUpInside" id="nat-ND-Nmx"/>
+                                            <action selector="replay:" destination="qrO-h3-wXX" eventType="touchUpInside" id="jzG-OQ-qMY"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -374,6 +376,7 @@
                             <constraint firstItem="oQv-U7-B3e" firstAttribute="bottom" secondItem="cLO-gy-91G" secondAttribute="bottom" id="NvW-VT-DkZ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Fcu-xJ-eW6"/>
                     <connections>
                         <outlet property="itemsFound" destination="wFn-Ky-HYq" id="4tQ-Pd-7di"/>
                         <outlet property="itemsNotFound" destination="7Kc-QV-CU1" id="SIE-t7-fn9"/>
@@ -383,7 +386,25 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5gd-vg-53f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3014.4927536231885" y="83.705357142857139"/>
+            <point key="canvasLocation" x="3924.6376811594205" y="83.705357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2VE-VI-W2l">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TCM-wr-OOT" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZGf-5e-aZb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Z5Q-AR-kdB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MzZ-HC-yqS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34.782608695652179" y="83.705357142857139"/>
         </scene>
     </scenes>
     <resources>

@@ -13,6 +13,7 @@ class FinishScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.setHidesBackButton(true, animated: false)
         timeRemaining.text = String(timeRemained) + " seconds remaining"
         var itemsfound = PlayerModel.shared.getStartingItemsFoundWithRoom(room: GameModel.shared.getRoom())
         var itemsfound_str = itemsfound.joined(separator:" > ")
@@ -67,19 +68,10 @@ class FinishScreenViewController: UIViewController {
     
     @IBOutlet weak var score: UILabel!
     
-    
     @IBAction func replay(_ sender: UIButton) {
-        
-        
-    }
-    /*
-    // MARK: - Navigation
+        let _ = navigationController?.popToRootViewController(animated: true)
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
 
 }

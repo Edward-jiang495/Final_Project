@@ -1,9 +1,20 @@
-# Final_project
-# Jonathan Ebrahimian Nathan Gage Edward Jiang
-
-
-
 # AR Scavenger Project Specifications
+
+### Jonathan Ebrahimian Nathan Gage Edward Jiang
+
+# Requirements
+
+1. The app will have a clean interface that allows players to quickly start games with varying difficulty (easy, medium, hard, impossible)
+
+2. The varying difficulties will refer to ranges of objects to be detected (easy=bedroom, kitchen objects; medium=household, office; hard=mall, museum; impossible=all recognizable objects). That is, the app will have a repository of objects grouped by environment (kitchen=[knife, fork, cutting board, milk, tomato], museum=[artwork, security guard,])
+
+3. The home screen interface will display the user’s best times for each difficulty The home screen will have a “game completion” progress bar to show the percentage of objects that have been found from the repository.
+ 
+4. When in game, the app will display a timer and list of items that have been / have yet to be found, similar to the home screen.
+
+5. The app will use YOLO to detect objects (we will be skimming the top 2-3 predictions and require the user to tap the “found object” button to confirm they found the object. This is so that the app doesn’t accidentally find the object & complete it for the user unintentionally).
+
+# Implementation Design
 
 # Models
 

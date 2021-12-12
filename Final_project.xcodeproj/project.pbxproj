@@ -28,12 +28,13 @@
 		ABDB73552763D8D8000C0ACC /* Holiday Snowflakes Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABDB73542763D8D8000C0ACC /* Holiday Snowflakes Demo.ttf */; };
 		ABDB73572763DA04000C0ACC /* Christmas Bless.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABDB73562763DA04000C0ACC /* Christmas Bless.ttf */; };
 		ABDB73592763DAE3000C0ACC /* Snowy Christmas - Personal Use.otf in Resources */ = {isa = PBXBuildFile; fileRef = ABDB73582763DAE3000C0ACC /* Snowy Christmas - Personal Use.otf */; };
+		ABDB7363276568AF000C0ACC /* SnowFlakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB7362276568AF000C0ACC /* SnowFlakeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		55A9912D275717D300B26D2D /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		55A9912F2757200000B26D2D /* EnviornmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviornmentModel.swift; sourceTree = "<group>"; };
-		ABB5C3272757122D0021C984 /* Final_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Final_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ABB5C3272757122D0021C984 /* $Final_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = $Final_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB5C32A2757122D0021C984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB5C32C2757122D0021C984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ABB5C32E2757122D0021C984 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +55,7 @@
 		ABDB73542763D8D8000C0ACC /* Holiday Snowflakes Demo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Holiday Snowflakes Demo.ttf"; sourceTree = "<group>"; };
 		ABDB73562763DA04000C0ACC /* Christmas Bless.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Christmas Bless.ttf"; sourceTree = "<group>"; };
 		ABDB73582763DAE3000C0ACC /* Snowy Christmas - Personal Use.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Snowy Christmas - Personal Use.otf"; sourceTree = "<group>"; };
+		ABDB7362276568AF000C0ACC /* SnowFlakeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowFlakeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,7 @@
 		ABB5C3282757122D0021C984 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				ABB5C3272757122D0021C984 /* Final_project.app */,
+				ABB5C3272757122D0021C984 /* $Final_project.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,6 +110,7 @@
 				ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */,
 				ABB5C351275BCDE70021C984 /* GameModel.swift */,
 				ABB5C355275D5CE90021C984 /* CustomTableViewCell.swift */,
+				ABDB7362276568AF000C0ACC /* SnowFlakeManager.swift */,
 			);
 			path = Final_project;
 			sourceTree = "<group>";
@@ -129,7 +132,7 @@
 			);
 			name = Final_project;
 			productName = Final_project;
-			productReference = ABB5C3272757122D0021C984 /* Final_project.app */;
+			productReference = ABB5C3272757122D0021C984 /* $Final_project.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55A991302757200100B26D2D /* EnviornmentModel.swift in Sources */,
+				ABDB7363276568AF000C0ACC /* SnowFlakeManager.swift in Sources */,
 				55A9912E275717D300B26D2D /* PlayerModel.swift in Sources */,
 				ABB5C32F2757122D0021C984 /* ViewController.swift in Sources */,
 				ABB5C32B2757122D0021C984 /* AppDelegate.swift in Sources */,
@@ -344,7 +348,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "CS5323.Final-project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = $Final_project;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -372,7 +376,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "CS5323.Final-project";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = $Final_project;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

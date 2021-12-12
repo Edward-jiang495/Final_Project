@@ -4,15 +4,13 @@
 //
 //  Created by Zhengran Jiang on 11/24/21.
 //
-//question to ask
-//perform segue without button
-//gesture detection with menu
-//prevent user from over swiping in table
+
 
 import UIKit
+import SpriteKit
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
-    
+    let skview = SKView()
 //    lazy var playerModel = PlayerModel.shared
     
     
@@ -71,10 +69,40 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 //        why? because i dont know how to do it on the storyboard
         let attr = NSDictionary(object: UIFont(name: "PWJoyeuxNoel", size: 18.0)!, forKey: NSAttributedString.Key.font as NSCopying)
         UISegmentedControl.appearance().setTitleTextAttributes(attr as! [NSAttributedString.Key : Any] , for: [])
-//        UIPickerView.appearance().set
-
-        // Do any additional setup after loading the view.
+//        createAnimation()
+        addSnowAnimation()
     }
+    
+
+    
+    func addSnowAnimation(){
+        //create snowing animation
+        let flakeEmitterCell = CAEmitterCell()
+        flakeEmitterCell.contents = UIImage(named: "snowFlake")?.cgImage
+        flakeEmitterCell.scale = 0.06
+        flakeEmitterCell.scaleRange = 0.3
+        flakeEmitterCell.emissionRange = .pi
+        flakeEmitterCell.lifetime = 20.0
+        flakeEmitterCell.birthRate = 40
+        flakeEmitterCell.velocity = -30
+        flakeEmitterCell.velocityRange = -20
+        flakeEmitterCell.yAcceleration = 30
+        flakeEmitterCell.xAcceleration = 5
+        flakeEmitterCell.spin = -0.5
+        flakeEmitterCell.spinRange = 1.0
+
+        let snowEmitterLayer = CAEmitterLayer()
+        snowEmitterLayer.emitterPosition = CGPoint(x: view.bounds.width / 2.0, y: -50)
+        snowEmitterLayer.emitterSize = CGSize(width: view.bounds.width, height: 0)
+        snowEmitterLayer.emitterShape = CAEmitterLayerEmitterShape.line
+        snowEmitterLayer.beginTime = CACurrentMediaTime()
+        snowEmitterLayer.timeOffset = 10
+        snowEmitterLayer.emitterCells = [flakeEmitterCell]
+
+        view.layer.addSublayer(snowEmitterLayer)
+    }
+    
+
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
          // This method is triggered whenever the user makes a change to the picker selection.

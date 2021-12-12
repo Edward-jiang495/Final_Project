@@ -11,7 +11,8 @@ class FinishScreenViewController: UIViewController {
         
         var itemsfound = PlayerModel.shared.getStartingItemsFoundWithRoom(room: room)
         var itemsfound_str = itemsfound.joined(separator:" > ")
-//        > is the snow man in snowy chrismas font 
+//        > is the snow man in snowy chrismas font
+        createAnimation()
         itemsFound.text = "Founded: " + itemsfound_str
         var itemsnotfound = PlayerModel.shared.getRemainingItemsWithRoom(room: room)
         if itemsnotfound.count == 0{

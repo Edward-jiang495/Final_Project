@@ -46,20 +46,24 @@ class PlayerModel: NSObject {
     
     func addFoundItem(room:String, itemFound:String){
        //add item if new
-        if !(itemsFound[room]?.contains(itemFound) ?? false) {
-            itemsFound[room]?.append(itemFound);
+        var newroom = room.replacingOccurrences(of: "⭐", with: "")
+        if !(itemsFound[newroom]?.contains(itemFound) ?? false) {
+            itemsFound[newroom]?.append(itemFound);
             UserDefaults.standard.set(itemsFound, forKey:"itemsFound");
         }
     }
     
     func saveRoomHighscore(room: String, newHighscore: Int){
-        highScorePerRoom[room] = newHighscore;
+        var newroom = room.replacingOccurrences(of: "⭐", with: "")
+        highScorePerRoom[newroom] = newHighscore;
         UserDefaults.standard.set(highScorePerRoom, forKey:"highScorePerRoom");
     }
     
     func saveRoomAsComplete(room: String){
-        if !completedRooms.contains(room) {
-            completedRooms.append(room);
+        var newroom = room.replacingOccurrences(of: "⭐", with: "")
+
+        if !completedRooms.contains(newroom) {
+            completedRooms.append(newroom);
             UserDefaults.standard.set(completedRooms, forKey:"completedRooms");
         }
     }
@@ -90,14 +94,18 @@ class PlayerModel: NSObject {
     }
     
     func getHighScoreWithRoom(room:String) -> Int{
-        return highScorePerRoom[room]!
+        var newroom = room.replacingOccurrences(of: "⭐", with: "")
+
+        return highScorePerRoom[newroom]!
     }
     
     func getRemainingItemsWithRoom(room:String) ->[String]{
-        var items = EnviornmentModel.shared.getItemsWithRoom(room: room)
+        var newroom = room.replacingOccurrences(of: "⭐", with: "")
+
+        var items = EnviornmentModel.shared.getItemsWithRoom(room: newroom)
         var itemsNotFound:[String] = []
         for element in items{
-            if !(itemsFound[room]?.contains(element))!{
+            if !(itemsFound[newroom]?.contains(element))!{
                 itemsNotFound.append(element)
             }
         }
@@ -105,7 +113,8 @@ class PlayerModel: NSObject {
     }
     
     func getStartingItemsFoundWithRoom(room: String) ->[String]{
-        return itemsFound[room]!
+        var newroom = room.replacingOccurrences(of: "⭐", with: "")
+        return itemsFound[newroom]!
     }
     
     

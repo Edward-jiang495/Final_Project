@@ -126,34 +126,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="64" translatesAutoresizingMaskIntoConstraints="NO" id="yfJ-yf-lIF">
-                                <rect key="frame" x="0.0" y="188" width="414" height="574"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPc-SJ-X04">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="20"/>
-                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hzq-us-AZi">
-                                        <rect key="frame" x="0.0" y="84" width="414" height="20"/>
-                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="30"/>
+                                        <rect key="frame" x="0.0" y="90.5" width="414" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
                                         <color key="textColor" systemColor="linkColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bfm-f5-go1">
-                                        <rect key="frame" x="0.0" y="168" width="414" height="20"/>
-                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="30"/>
+                                        <rect key="frame" x="0.0" y="181" width="414" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nQg-50-rhz">
-                                        <rect key="frame" x="0.0" y="252" width="414" height="20"/>
-                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="30"/>
+                                        <rect key="frame" x="0.0" y="271.5" width="414" height="26.5"/>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
                                         <color key="textColor" systemColor="linkColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rwh-FP-SMU">
-                                        <rect key="frame" x="0.0" y="336" width="414" height="238"/>
+                                        <rect key="frame" x="0.0" y="362" width="414" height="412"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Ready">
                                             <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="18"/>
@@ -170,10 +170,10 @@
                         <viewLayoutGuide key="safeArea" id="PaF-eF-ovM"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="yfJ-yf-lIF" firstAttribute="leading" secondItem="PaF-eF-ovM" secondAttribute="leading" id="4bn-94-5wh"/>
-                            <constraint firstItem="PaF-eF-ovM" firstAttribute="bottom" secondItem="yfJ-yf-lIF" secondAttribute="bottom" constant="100" id="bsW-xU-uN7"/>
-                            <constraint firstItem="PaF-eF-ovM" firstAttribute="trailing" secondItem="yfJ-yf-lIF" secondAttribute="trailing" id="hoG-K4-h5A"/>
-                            <constraint firstItem="yfJ-yf-lIF" firstAttribute="top" secondItem="PaF-eF-ovM" secondAttribute="top" constant="100" id="iMo-7S-fZg"/>
+                            <constraint firstItem="PaF-eF-ovM" firstAttribute="trailing" secondItem="yfJ-yf-lIF" secondAttribute="trailing" id="0Cu-by-Crs"/>
+                            <constraint firstItem="PaF-eF-ovM" firstAttribute="bottom" secondItem="yfJ-yf-lIF" secondAttribute="bottom" id="T7M-cg-wXA"/>
+                            <constraint firstItem="yfJ-yf-lIF" firstAttribute="top" secondItem="PaF-eF-ovM" secondAttribute="top" id="aCd-yk-rdQ"/>
+                            <constraint firstItem="yfJ-yf-lIF" firstAttribute="leading" secondItem="PaF-eF-ovM" secondAttribute="leading" id="ylA-g3-dxA"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Hwi-bv-0dt"/>

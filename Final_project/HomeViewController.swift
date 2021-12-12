@@ -50,6 +50,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         self.room.delegate = self
         self.room.dataSource = self
+        addSnowAnimation()
+
 
 //        let found = PlayerModel.shared.percentNotFound()
 //        self.setProgress(val:  Float(found))
@@ -88,12 +90,13 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
         let attr = NSDictionary(object: UIFont(name: "PWJoyeuxNoel", size: 18.0)!, forKey: NSAttributedString.Key.font as NSCopying)
         UISegmentedControl.appearance().setTitleTextAttributes(attr as! [NSAttributedString.Key : Any] , for: [])
-        addSnowAnimation()
         let found = PlayerModel.shared.percentNotFound()
         self.setProgress(val:  Float(found))
         
         
     }
+    
+    
     
     
 
@@ -106,7 +109,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         flakeEmitterCell.scaleRange = 0.3
         flakeEmitterCell.emissionRange = .pi
         flakeEmitterCell.lifetime = 20.0
-        flakeEmitterCell.birthRate = 40
+        flakeEmitterCell.birthRate = 20
         flakeEmitterCell.velocity = -30
         flakeEmitterCell.velocityRange = -20
         flakeEmitterCell.yAcceleration = 30

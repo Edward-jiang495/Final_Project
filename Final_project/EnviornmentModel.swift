@@ -1,19 +1,4 @@
-//
-//  EnviornmentModel.swift
-//  Final_project
-//
-//  Created by Jonathan Ebrahimian on 11/30/21.
-//
 
-import Foundation
-
-
-//
-//  PlayerModel.swift
-//  Final_project
-//
-//  Created by Jonathan Ebrahimian on 11/30/21.
-//
 
 import Foundation
 
@@ -182,23 +167,15 @@ class EnviornmentModel: NSObject {
     }
     
     func getItemsWithRoom(room:String)->[String]{
-        return locations[room]!
+        var newroom = room.replacingOccurrences(of: "⭐", with: "")
+        return locations[newroom]!
     }
     
     func getTimeWithRooms(room: String) ->Int {
-        return time[room]!
+        var newroom = room.replacingOccurrences(of: "⭐", with: "")
+        return time[newroom]!
     }
     
-//    func getHighScoreWithRooms(room: String) ->Int{
-//        return startingHighscores[room]!
-//    }
-//    
-//    func getRemainingItemsWithRooms(room: String) ->[String]{
-//        return startingItemsNotFound[room]!
-//    }
-//    
-//    func getStartingItemsFoundWithRioom(room: String) ->[String]{
-//        return startingItemsFound[room]!
-//    }
+
 
 }

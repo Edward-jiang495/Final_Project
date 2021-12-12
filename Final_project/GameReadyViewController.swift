@@ -7,8 +7,8 @@ class GameReadyViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         var room = GameModel.shared.getRoom()
         locations.text = room
         time.text = String(EnviornmentModel.shared.getTimeWithRooms(room: room)) + " seconds "
@@ -17,9 +17,14 @@ class GameReadyViewController: UIViewController {
         var remainingitemstxt = remainingitems.joined(separator: " > ");
         
         items.text = remainingitemstxt
-        
-
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//
+//        
+//
+//    }
     @IBOutlet weak var highScore: UILabel!
     
     @IBOutlet weak var items: UILabel!

@@ -16,10 +16,12 @@ class GameModel :NSObject {
     }
     
     func getRoom()->String{
-        return currentRoom
+        var newroom = currentRoom.replacingOccurrences(of: "⭐", with: "")
+        return newroom
     }
     func setRoom(room: String){
-        currentRoom = room
+        var newroom = room.replacingOccurrences(of: "⭐", with: "")
+        currentRoom = newroom
     }
 
 }

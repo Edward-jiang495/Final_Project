@@ -50,26 +50,52 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         self.room.delegate = self
         self.room.dataSource = self
-        easyRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "easy")
-        mediumRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "medium")
-        hardRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "hard")
-        let found = PlayerModel.shared.percentNotFound()
-        self.setProgress(val:  Float(found))
-        
-//        setting the font for ui segment control dynamically
-//        why? because i dont know how to do it on the storyboard
-        let attr = NSDictionary(object: UIFont(name: "PWJoyeuxNoel", size: 18.0)!, forKey: NSAttributedString.Key.font as NSCopying)
-        UISegmentedControl.appearance().setTitleTextAttributes(attr as! [NSAttributedString.Key : Any] , for: [])
-        addSnowAnimation()
+
+//        let found = PlayerModel.shared.percentNotFound()
+//        self.setProgress(val:  Float(found))
+//
+////        setting the font for ui segment control dynamically
+////        why? because i dont know how to do it on the storyboard
+//        let attr = NSDictionary(object: UIFont(name: "PWJoyeuxNoel", size: 18.0)!, forKey: NSAttributedString.Key.font as NSCopying)
+//        UISegmentedControl.appearance().setTitleTextAttributes(attr as! [NSAttributedString.Key : Any] , for: [])
+//        addSnowAnimation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        var completedRooms = PlayerModel.shared.completedRooms
+        print(completedRooms)
+        easyRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "easy")
+        mediumRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "medium")
+        hardRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "hard")
+        for element in completedRooms{
+            let easyRoomIdx  = easyRooms.firstIndex(of: element)
+            if easyRoomIdx != nil{
+                easyRooms[easyRoomIdx!] = easyRooms[easyRoomIdx!] + "⭐"
+            }
+            let mediumRoomIdx = mediumRooms.firstIndex(of: element)
+            if mediumRoomIdx != nil{
+                mediumRooms[mediumRoomIdx!] = mediumRooms[mediumRoomIdx!] + "⭐"
+            }
+            let hardRoomIdx = hardRooms.firstIndex(of: element)
+            if hardRoomIdx != nil{
+                hardRooms[hardRoomIdx!] = hardRooms[hardRoomIdx!] + "⭐"
+            }
+        }
+        self.room.reloadComponent(0)
+            
+
+
+        let attr = NSDictionary(object: UIFont(name: "PWJoyeuxNoel", size: 18.0)!, forKey: NSAttributedString.Key.font as NSCopying)
+        UISegmentedControl.appearance().setTitleTextAttributes(attr as! [NSAttributedString.Key : Any] , for: [])
+        addSnowAnimation()
         let found = PlayerModel.shared.percentNotFound()
         self.setProgress(val:  Float(found))
         
         
     }
+    
+    
 
     
     func addSnowAnimation(){
@@ -130,8 +156,6 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 //        print(selectedValue)
 //        print selected room
         GameModel.shared.setRoom(room: selectedValue)
-    
-
         
     }
     
@@ -140,11 +164,22 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 //        reset
 //        add an alert box to warn players about reseting
         let alert = UIAlertController(title: "Reset Player?", message: "Upon clicking reset, all of your records be be erased. Are you sure about this? ", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { action in
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [self] action in
             switch action.style{
                 case .default:
                 PlayerModel.shared.resetPlayer()
                 self.setProgress(val: 0)
+                for i in 0 ..< self.easyRooms.count {
+                    easyRooms[i] = easyRooms[i].replacingOccurrences(of: "⭐", with: "", options: NSString.CompareOptions.literal, range: nil)
+                }
+                for i in 0 ..< self.mediumRooms.count {
+                    mediumRooms[i] = mediumRooms[i].replacingOccurrences(of: "⭐", with: "", options: NSString.CompareOptions.literal, range: nil)
+                }
+                for i in 0 ..< self.hardRooms.count {
+                    hardRooms[i] = hardRooms[i].replacingOccurrences(of: "⭐", with: "", options: NSString.CompareOptions.literal, range: nil)
+                }
+                self.room.reloadComponent(0)
+                
                 print("RESET")
                 case .cancel:
                 print("cancel")
@@ -157,7 +192,6 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         alert.addAction(UIAlertAction(title: "No", style: .default, handler: { action in
             switch action.style{
                 case .default:
-                PlayerModel.shared.resetPlayer()
                 print("default")
                 
                 case .cancel:

@@ -14,7 +14,7 @@ class FinishScreenViewController: UIViewController {
 //        > is the snow man in snowy chrismas font 
         itemsFound.text = "Founded: " + itemsfound_str
         var itemsnotfound = PlayerModel.shared.getRemainingItemsWithRoom(room: room)
-        if itemsfound.count == 0{
+        if itemsnotfound.count == 0{
             itemsNotFound.text = "Congratulation, you completed " + room + "⭐"
             createAnimation()
         }
@@ -33,6 +33,8 @@ class FinishScreenViewController: UIViewController {
         else{
             score.text = "Score: " + String(points)
         }
+        PlayerModel.shared.saveRoomAsComplete(room: room)
+        
 
         
     }

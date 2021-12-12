@@ -62,7 +62,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         easyRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "easy")
         mediumRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "medium")
         hardRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "hard")
-        var found = PlayerModel.shared.percentNotFound()
+        let found = PlayerModel.shared.percentNotFound()
         self.setProgress(val:  Float(found))
         
 //        setting the font for ui segment control dynamically

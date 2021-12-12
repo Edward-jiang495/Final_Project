@@ -22,6 +22,7 @@ class EnviornmentModel: NSObject {
     
     static let shared = EnviornmentModel();
     
+    let numTotalItems = 66.0;
     let locations:[String:[String]] = [
         "personal room": ["person",
                         "backpack",

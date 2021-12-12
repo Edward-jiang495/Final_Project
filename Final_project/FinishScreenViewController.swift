@@ -7,15 +7,34 @@ class FinishScreenViewController: UIViewController {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: false)
         timeRemaining.text = String(timeRemained) + " seconds remaining"
-        var itemsfound = PlayerModel.shared.getStartingItemsFoundWithRoom(room: GameModel.shared.getRoom())
+        var room = GameModel.shared.getRoom()
+        
+        var itemsfound = PlayerModel.shared.getStartingItemsFoundWithRoom(room: room)
         var itemsfound_str = itemsfound.joined(separator:" > ")
 //        > is the snow man in snowy chrismas font 
         itemsFound.text = "Founded: " + itemsfound_str
-        var itemsnotfound = PlayerModel.shared.getRemainingItemsWithRoom(room: GameModel.shared.getRoom())
-        var itemsnotfound_str = itemsnotfound.joined(separator:" > ")
-        itemsNotFound.text = "Not founded: " + itemsnotfound_str
-        createAnimation()
-        // Do any additional setup after loading the view.
+        var itemsnotfound = PlayerModel.shared.getRemainingItemsWithRoom(room: room)
+        if itemsfound.count == 0{
+            itemsNotFound.text = "Congratulation, you completed " + room + "⭐"
+            createAnimation()
+        }
+        else{
+            var itemsnotfound_str = itemsnotfound.joined(separator:" > ")
+            itemsNotFound.text = "Not founded: " + itemsnotfound_str
+        }
+        var points = itemsfound.count * 100
+        if itemsnotfound.count == 0{
+            points = points + timeRemained * 10
+        }
+        if PlayerModel.shared.getHighScoreWithRoom(room: room) < points{
+            PlayerModel.shared.saveRoomHighscore(room: room, newHighscore: points)
+            score.text = "New Highscore: " + String(points)
+        }
+        else{
+            score.text = "Score: " + String(points)
+        }
+
+        
     }
     
     func createAnimation(){

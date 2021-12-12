@@ -1,11 +1,3 @@
-//
-//  GameViewController.swift
-//  ARScavengerHunt
-//
-//  Created by Zhengran Jiang on 11/26/21.
-//
-//
-
 import UIKit
 import AVFoundation
 
@@ -215,35 +207,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
 //               self.tableView.frame = CGRect(x: 0, y: screenSize.height, width: screenSize.width, height: self.height)
              }, completion: nil)
          }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
-//extension GameViewController: UITableViewDataSource, UITableViewDelegate{
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-////        return number of items in room
-//        return EnviornmentModel.shared.getRemainingItemsWithRooms(room: self.room).count
-//
-//    }
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell else{
-//            fatalError("unable to deque cell")
-//        }
-//        cell.label.text = self.itemsToFound[indexPath.row]
-//        return cell
-//    }
-////    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-////        return 50
-////    }
-//
-//
-//}
+

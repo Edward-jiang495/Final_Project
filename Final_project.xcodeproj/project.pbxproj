@@ -11,7 +11,6 @@
 		55A991302757200100B26D2D /* EnviornmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9912F2757200000B26D2D /* EnviornmentModel.swift */; };
 		ABB5C32B2757122D0021C984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C32A2757122D0021C984 /* AppDelegate.swift */; };
 		ABB5C32D2757122D0021C984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C32C2757122D0021C984 /* SceneDelegate.swift */; };
-		ABB5C32F2757122D0021C984 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C32E2757122D0021C984 /* ViewController.swift */; };
 		ABB5C3352757122D0021C984 /* Final_project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C3332757122D0021C984 /* Final_project.xcdatamodeld */; };
 		ABB5C3372757122E0021C984 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABB5C3362757122E0021C984 /* Assets.xcassets */; };
 		ABB5C344275712D70021C984 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABB5C343275712D70021C984 /* Main.storyboard */; };
@@ -25,8 +24,6 @@
 		ABB5C356275D5CE90021C984 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C355275D5CE90021C984 /* CustomTableViewCell.swift */; };
 		ABDB73512763AFDF000C0ACC /* PWHappyChristmas.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABDB73502763AFDF000C0ACC /* PWHappyChristmas.ttf */; };
 		ABDB73532763AFEC000C0ACC /* Christmas Icons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABDB73522763AFEC000C0ACC /* Christmas Icons.ttf */; };
-		ABDB73552763D8D8000C0ACC /* Holiday Snowflakes Demo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABDB73542763D8D8000C0ACC /* Holiday Snowflakes Demo.ttf */; };
-		ABDB73572763DA04000C0ACC /* Christmas Bless.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABDB73562763DA04000C0ACC /* Christmas Bless.ttf */; };
 		ABDB73592763DAE3000C0ACC /* Snowy Christmas - Personal Use.otf in Resources */ = {isa = PBXBuildFile; fileRef = ABDB73582763DAE3000C0ACC /* Snowy Christmas - Personal Use.otf */; };
 		ABDB7363276568AF000C0ACC /* SnowFlakeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABDB7362276568AF000C0ACC /* SnowFlakeManager.swift */; };
 /* End PBXBuildFile section */
@@ -37,7 +34,6 @@
 		ABB5C3272757122D0021C984 /* $Final_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = $Final_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB5C32A2757122D0021C984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB5C32C2757122D0021C984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		ABB5C32E2757122D0021C984 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ABB5C3342757122D0021C984 /* Final_project.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Final_project.xcdatamodel; sourceTree = "<group>"; };
 		ABB5C3362757122E0021C984 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABB5C33B2757122E0021C984 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -52,8 +48,6 @@
 		ABB5C355275D5CE90021C984 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		ABDB73502763AFDF000C0ACC /* PWHappyChristmas.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = PWHappyChristmas.ttf; sourceTree = "<group>"; };
 		ABDB73522763AFEC000C0ACC /* Christmas Icons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Christmas Icons.ttf"; sourceTree = "<group>"; };
-		ABDB73542763D8D8000C0ACC /* Holiday Snowflakes Demo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Holiday Snowflakes Demo.ttf"; sourceTree = "<group>"; };
-		ABDB73562763DA04000C0ACC /* Christmas Bless.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Christmas Bless.ttf"; sourceTree = "<group>"; };
 		ABDB73582763DAE3000C0ACC /* Snowy Christmas - Personal Use.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Snowy Christmas - Personal Use.otf"; sourceTree = "<group>"; };
 		ABDB7362276568AF000C0ACC /* SnowFlakeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnowFlakeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,12 +86,9 @@
 				55A9912D275717D300B26D2D /* PlayerModel.swift */,
 				ABB5C32A2757122D0021C984 /* AppDelegate.swift */,
 				ABB5C32C2757122D0021C984 /* SceneDelegate.swift */,
-				ABB5C32E2757122D0021C984 /* ViewController.swift */,
 				ABDB73502763AFDF000C0ACC /* PWHappyChristmas.ttf */,
 				ABDB73522763AFEC000C0ACC /* Christmas Icons.ttf */,
 				ABDB73582763DAE3000C0ACC /* Snowy Christmas - Personal Use.otf */,
-				ABDB73562763DA04000C0ACC /* Christmas Bless.ttf */,
-				ABDB73542763D8D8000C0ACC /* Holiday Snowflakes Demo.ttf */,
 				ABB5C3362757122E0021C984 /* Assets.xcassets */,
 				ABB5C33B2757122E0021C984 /* Info.plist */,
 				ABB5C3332757122D0021C984 /* Final_project.xcdatamodeld */,
@@ -175,8 +166,6 @@
 			files = (
 				ABB5C346275712DC0021C984 /* LaunchScreen.storyboard in Resources */,
 				ABDB73592763DAE3000C0ACC /* Snowy Christmas - Personal Use.otf in Resources */,
-				ABDB73552763D8D8000C0ACC /* Holiday Snowflakes Demo.ttf in Resources */,
-				ABDB73572763DA04000C0ACC /* Christmas Bless.ttf in Resources */,
 				ABB5C3372757122E0021C984 /* Assets.xcassets in Resources */,
 				ABB5C344275712D70021C984 /* Main.storyboard in Resources */,
 				ABDB73512763AFDF000C0ACC /* PWHappyChristmas.ttf in Resources */,
@@ -194,7 +183,6 @@
 				55A991302757200100B26D2D /* EnviornmentModel.swift in Sources */,
 				ABDB7363276568AF000C0ACC /* SnowFlakeManager.swift in Sources */,
 				55A9912E275717D300B26D2D /* PlayerModel.swift in Sources */,
-				ABB5C32F2757122D0021C984 /* ViewController.swift in Sources */,
 				ABB5C32B2757122D0021C984 /* AppDelegate.swift in Sources */,
 				ABB5C350275712F40021C984 /* FinishScreenViewController.swift in Sources */,
 				ABB5C352275BCDE70021C984 /* GameModel.swift in Sources */,

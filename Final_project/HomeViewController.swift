@@ -1,19 +1,10 @@
-//
-//  HomeViewController.swift
-//  ARScavengerHunt
-//
-//  Created by Zhengran Jiang on 11/24/21.
-//
-
 
 import UIKit
 import SpriteKit
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource  {
     let skview = SKView()
-//    lazy var playerModel = PlayerModel.shared
-    
-    
+        
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -63,21 +54,18 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         mediumRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "medium")
         hardRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "hard")
         let found = PlayerModel.shared.percentNotFound()
-        print(found)
         self.setProgress(val:  Float(found))
         
 //        setting the font for ui segment control dynamically
 //        why? because i dont know how to do it on the storyboard
         let attr = NSDictionary(object: UIFont(name: "PWJoyeuxNoel", size: 18.0)!, forKey: NSAttributedString.Key.font as NSCopying)
         UISegmentedControl.appearance().setTitleTextAttributes(attr as! [NSAttributedString.Key : Any] , for: [])
-//        createAnimation()
         addSnowAnimation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let found = PlayerModel.shared.percentNotFound()
-        print(found)
         self.setProgress(val:  Float(found))
         
         
@@ -139,7 +127,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             selectedValue = ""
         }
         
-        print(selectedValue)
+//        print(selectedValue)
 //        print selected room
         GameModel.shared.setRoom(room: selectedValue)
     
@@ -214,17 +202,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         return pickerLabel!
     }
     
-
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var progressBar: UIProgressView!
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

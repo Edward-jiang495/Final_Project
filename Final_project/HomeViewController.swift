@@ -74,7 +74,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         addSnowAnimation()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         let found = PlayerModel.shared.percentNotFound()
         print(found)

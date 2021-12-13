@@ -12,6 +12,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let room = GameModel.shared.currentRoom
     let items = EnvironmentModel.shared.itemsInLocation[GameModel.shared.currentRoom]!
     
+    var trackedItems = EnvironmentModel.shared.itemsInLocation[GameModel.shared.currentRoom]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -74,6 +76,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func endGame()
     {
         timer?.invalidate()
+        timer = nil
         
         DispatchQueue.main.async {
             self.performSegue(withIdentifier: "goToEndGame", sender: nil)
@@ -112,6 +115,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
                         print("Found: \(item)")
                     }
                     
+                    trackedItems.removeAll(where: { $0 == item })
                     foundItems.append(EnvironmentModel.shared.getHumanReadable(object: item))
                 }
             }
@@ -178,7 +182,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //        return number of items in room
-        return EnvironmentModel.shared.itemsInLocation[room]!.count
+        return trackedItems.count
         
     }
     
@@ -187,18 +191,9 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
             fatalError("unable to deque cell")
         }
         
-        let item = EnvironmentModel.shared.getHumanReadable(object: EnvironmentModel.shared.itemsInLocation[room]![indexPath.row])
+        let item = EnvironmentModel.shared.getHumanReadable(object: trackedItems[indexPath.row])
         
-        if GameModel.shared.itemsFoundForRound.contains(item)
-        {
-            cell.label.text = "✅" + item
-        }
-        
-        else
-        {
-            cell.label.text = item
-        }
-        
+        cell.label.text = item
         return cell
     }
     

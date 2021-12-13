@@ -38,17 +38,12 @@ class FinishScreenViewController: UIViewController {
         if GameModel.shared.itemsFoundForRound.count == EnvironmentModel.shared.itemsInLocation[room]!.count
         {
             let timeBonus = remainingTime * 10
-            scoringInfo.append("Time Bonus\t\t\t\(timeBonus)\n")
+            scoringInfo.append("\n★\tRoom Completion Bonus: \n")
+            scoringInfo.append("\tTime Remaining\t\(timeBonus)\n")
             
             points += timeBonus
             
-            score.text = "⭐️ Room was completed! ⭐️"
             PlayerModel.shared.completedRooms.insert(room)
-        }
-        
-        else
-        {
-            score.text = "Room wasn't completed..."
         }
         
         scoringInfoLabel.text = scoringInfo

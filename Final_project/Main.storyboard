@@ -232,7 +232,6 @@
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="quit:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="S4x-l2-GFr"/>
-                                            <segue destination="qrO-h3-wXX" kind="show" identifier="goToEndGame" id="dOm-PK-dPE"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -269,6 +268,7 @@
                         <outlet property="firstThreeObjectsToFind" destination="BoY-Ze-HOC" id="Ozg-dn-PCb"/>
                         <outlet property="timerLabel" destination="eQD-86-LEg" id="ktZ-6i-vco"/>
                         <outlet property="videoPreview" destination="d9y-d7-Ug1" id="jy3-We-T42"/>
+                        <segue destination="qrO-h3-wXX" kind="show" identifier="goToEndGame" id="Fme-Fk-eyy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3W2-GN-tFS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

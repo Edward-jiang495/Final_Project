@@ -351,7 +351,7 @@
 				DEVELOPMENT_TEAM = F69WJ27LN4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Final_project/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "AR Scavenger Hunt";
+				INFOPLIST_KEY_CFBundleDisplayName = "Scavenger Hunt";
 				INFOPLIST_KEY_NSCameraUsageDescription = Test;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -381,7 +381,7 @@
 				DEVELOPMENT_TEAM = F69WJ27LN4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Final_project/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "AR Scavenger Hunt";
+				INFOPLIST_KEY_CFBundleDisplayName = "Scavenger Hunt";
 				INFOPLIST_KEY_NSCameraUsageDescription = Test;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

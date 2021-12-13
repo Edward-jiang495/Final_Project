@@ -2,7 +2,7 @@
 #
 # gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
-Final_project/YOLOv3.mlmodel
+#Final_project/YOLOv3.mlmodel
 
 ## Build generated
 build/

@@ -14,8 +14,6 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var itemsFound:[String] = PlayerModel.shared.getStartingItemsFoundWithRoom(room: GameModel.shared.getRoom());
     var totalItems:[String] = []
     
-    var lastFoundItems: [String] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +34,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var objToFind3 = ""
         if itemsToFind.count >= 3{
             //                more than three items to find
-            var arrSlice = itemsToFind[0...2]
+            let arrSlice = itemsToFind[0...2]
             objToFind3 = arrSlice.joined(separator:", ")
             
         }
@@ -53,13 +51,6 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBOutlet weak var videoPreview: UIView!
-    
-    
-    func processImage(inputImage:CIImage) -> CIImage{
-        //return inputImage
-        //        print("PROCESS")
-        return inputImage
-    }
     
     var timer: Timer?
     lazy var timeLeft = 10
@@ -95,60 +86,48 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     
-    @IBAction func detectItem(_ sender: UIButton) {
-        //        this function is for capturing image item
-        for item in lastFoundItems
+    @IBAction func onDetectPress(_ sender: UIButton) {
+        print("Detection requested.")
+        detectionRequested = true
+    }
+    
+    func onDetectedItems(_ items: [String])
+    {
+        for item in items
         {
             print("looking at \(item)")
             
-            if let index = itemsToFind.firstIndex(of:item){
-                let element = itemsToFind.remove(at: index)
-                itemsFound.append(element)
-                print("player newly found: \(element)")
-            }
-            PlayerModel.shared.addFoundItem(room: room, itemFound: item)
-            
-            if let index = totalItems.firstIndex(of: item) {
-                var element = totalItems.remove(at: index)
-                element = element + "⭐"
-                //            remove from beginning and append to the end
-                //            WITH A STAR
-                var objToFind3 = ""
-                if itemsToFind.count >= 3{
-                    //                more than three items to find
-                    var arrSlice = itemsToFind[0...2]
-                    objToFind3 = arrSlice.joined(separator:", ")
-                    
-                }
-                else{
-                    //                less than 3 items to find
-                    objToFind3 = itemsToFind.joined(separator:", ")
-                }
-                firstThreeObjectsToFind.text = objToFind3
-                
-                totalItems.append(element)
-                tableView.reloadData()
-                //            reload table
-            }
+            //            if let index = itemsToFind.firstIndex(of:item){
+            //                let element = itemsToFind.remove(at: index)
+            //                itemsFound.append(element)
+            //                print("player newly found: \(element)")
+            //            }
+            //            PlayerModel.shared.addFoundItem(room: room, itemFound: item)
+            //
+            //            if let index = totalItems.firstIndex(of: item) {
+            //                var element = totalItems.remove(at: index)
+            //                element = element + "⭐"
+            //                //            remove from beginning and append to the end
+            //                //            WITH A STAR
+            //                var objToFind3 = ""
+            //                if itemsToFind.count >= 3{
+            //                    //                more than three items to find
+            //                    var arrSlice = itemsToFind[0...2]
+            //                    objToFind3 = arrSlice.joined(separator:", ")
+            //
+            //                }
+            //                else{
+            //                    //                less than 3 items to find
+            //                    objToFind3 = itemsToFind.joined(separator:", ")
+            //                }
+            //                firstThreeObjectsToFind.text = objToFind3
+            //
+            //                totalItems.append(element)
+            //                tableView.reloadData()
+            //                //            reload table
+            //            }
         }
-        //        the item that was found
-        
-        
     }
-    
-    
-    
-    //    @IBAction func toggleCamera(_ sender: UIButton) {
-    //        if isFrontCamera{
-    //            self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.back)
-    //            isFrontCamera = !isFrontCamera
-    //        }
-    //        else{
-    //            self.videoManager.setCameraPosition(position: AVCaptureDevice.Position.front)
-    //            isFrontCamera = !isFrontCamera
-    //        }
-    //    }
-    
     
     @IBAction func swipe(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {
@@ -196,7 +175,6 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         return cell
     }
     
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? FinishScreenViewController{
             vc.timeRemained = timeLeft
@@ -212,6 +190,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }, completion: nil)
     }
     
+    // MARK: YOLOv3
+    
     let yolo = YOLO()
     
     var videoCapture: VideoCapture!
@@ -219,40 +199,32 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var startTimes: [CFTimeInterval] = []
     
     var boundingBoxes = [BoundingBox]()
-    var colors: [UIColor] = []
     
     let ciContext = CIContext()
     var resizedPixelBuffer: CVPixelBuffer?
     
     var framesDone = 0
     var frameCapturingStartTime = CACurrentMediaTime()
-    let semaphore = DispatchSemaphore(value: 2)
+    var detectionRequested = false
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         print(#function)
     }
     
-    // MARK: - Initialization
+    // MARK: - YOLO Initialization
     
     func setUpBoundingBoxes() {
+        print("Setting up bounding boxes...")
+        
         for _ in 0..<YOLO.maxBoundingBoxes {
             boundingBoxes.append(BoundingBox())
-        }
-        
-        // Make colors for the bounding boxes. There is one color for each class,
-        // 80 classes in total.
-        for r: CGFloat in [0.2, 0.4, 0.6, 0.8, 1.0] {
-            for g: CGFloat in [0.3, 0.7, 0.6, 0.8] {
-                for b: CGFloat in [0.4, 0.8, 0.6, 1.0] {
-                    let color = UIColor(red: r, green: g, blue: b, alpha: 1)
-                    colors.append(color)
-                }
-            }
         }
     }
     
     func setUpCoreImage() {
+        print("Setting up CoreImage...")
+        
         let status = CVPixelBufferCreate(nil, YOLO.inputWidth, YOLO.inputHeight,
                                          kCVPixelFormatType_32BGRA, nil,
                                          &resizedPixelBuffer)
@@ -262,23 +234,25 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func setUpVision() {
+        print("Setting up Vision...")
+        
         guard let visionModel = try? VNCoreMLModel(for: yolo.model.model) else {
             print("Error: could not create Vision model")
             return
         }
         
         request = VNCoreMLRequest(model: visionModel, completionHandler: visionRequestDidComplete)
-        
-        // NOTE: If you choose another crop/scale option, then you must also
-        // change how the BoundingBox objects get scaled when they are drawn.
-        // Currently they assume the full input image is used.
         request.imageCropAndScaleOption = .scaleFill
     }
     
     func setUpCamera() {
+        print("Setting up Camera...")
+        
         videoCapture = VideoCapture()
+        
         videoCapture.delegate = self
-        videoCapture.fps = 50
+        videoCapture.fps = 60
+        
         videoCapture.setUp(sessionPreset: AVCaptureSession.Preset.vga640x480) { success in
             if success {
                 // Add the video preview into the UI.
@@ -286,11 +260,6 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     self.videoPreview.layer.addSublayer(previewLayer)
                     self.resizePreviewLayer()
                 }
-                
-                //          // Add the bounding box layers to the UI, on top of the video preview.
-                //          for box in self.boundingBoxes {
-                //            box.addToLayer(self.videoPreview.layer)
-                //          }
                 
                 // Once everything is set up, we can start capturing live video.
                 self.videoCapture.start()
@@ -315,38 +284,9 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     // MARK: - Doing inference
     
-    func predict(image: UIImage) {
-        if let pixelBuffer = image.pixelBuffer(width: YOLO.inputWidth, height: YOLO.inputHeight) {
-            predict(pixelBuffer: pixelBuffer)
-        }
-    }
-    
-    func predict(pixelBuffer: CVPixelBuffer) {
-        // Measure how long it takes to predict a single video frame.
-        let startTime = CACurrentMediaTime()
-        
-        // Resize the input with Core Image to 416x416.
-        guard let resizedPixelBuffer = resizedPixelBuffer else { return }
-        let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
-        let sx = CGFloat(YOLO.inputWidth) / CGFloat(CVPixelBufferGetWidth(pixelBuffer))
-        let sy = CGFloat(YOLO.inputHeight) / CGFloat(CVPixelBufferGetHeight(pixelBuffer))
-        let scaleTransform = CGAffineTransform(scaleX: sx, y: sy)
-        let scaledImage = ciImage.transformed(by: scaleTransform)
-        ciContext.render(scaledImage, to: resizedPixelBuffer)
-        
-        // This is an alternative way to resize the image (using vImage):
-        //if let resizedPixelBuffer = resizePixelBuffer(pixelBuffer,
-        //                                              width: YOLO.inputWidth,
-        //                                              height: YOLO.inputHeight)
-        
-        // Resize the input to 416x416 and give it to our model.
-        if let boundingBoxes = try? yolo.predict(image: resizedPixelBuffer) {
-            let elapsed = CACurrentMediaTime() - startTime
-            showOnMainThread(boundingBoxes, elapsed)
-        }
-    }
-    
     func predictUsingVision(pixelBuffer: CVPixelBuffer) {
+        print("Performing Vision Request...")
+        
         // Measure how long it takes to predict a single video frame. Note that
         // predict() can be called on the next frame while the previous one is
         // still being processed. Hence the need to queue up the start times.
@@ -358,28 +298,15 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func visionRequestDidComplete(request: VNRequest, error: Error?) {
-        if let observations = request.results as? [VNCoreMLFeatureValueObservation],
-           let features = observations.first?.featureValue.multiArrayValue {
-            
-            let boundingBoxes = yolo.computeBoundingBoxes(features: [features, features, features])
+        print("Vision Request Completed.")
+        
+        if let observations = request.results as? [VNCoreMLFeatureValueObservation] {
+            let features = observations.map { $0.featureValue.multiArrayValue! }
+            let boundingBoxes = yolo.computeBoundingBoxes(features: features)
             let elapsed = CACurrentMediaTime() - startTimes.remove(at: 0)
-            showOnMainThread(boundingBoxes, elapsed)
-        }
-    }
-    
-    func showOnMainThread(_ boundingBoxes: [YOLO.Prediction], _ elapsed: CFTimeInterval) {
-        DispatchQueue.main.async {
-            // For debugging, to make sure the resized CVPixelBuffer is correct.
-            //var debugImage: CGImage?
-            //VTCreateCGImageFromCVPixelBuffer(resizedPixelBuffer, nil, &debugImage)
-            //self.debugImageView.image = UIImage(cgImage: debugImage!)
             
-            self.show(predictions: boundingBoxes)
-            
-            let fps = self.measureFPS()
-            print("Elapsed \(elapsed) seconds - \(fps)")
-            
-            self.semaphore.signal()
+            onDetectedItems(boundingBoxes.map { labels[$0.classIndex] })
+            print("Elapsed \(elapsed) seconds - \(self.measureFPS())")
         }
     }
     
@@ -394,59 +321,15 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         return currentFPSDelivered
     }
-    
-    func show(predictions: [YOLO.Prediction]) {
-        lastFoundItems = []
-        
-        for i in 0..<boundingBoxes.count {
-            if i < predictions.count {
-                let prediction = predictions[i]
-                
-                // The predicted bounding box is in the coordinate space of the input
-                // image, which is a square image of 416x416 pixels. We want to show it
-                // on the video preview, which is as wide as the screen and has a 4:3
-                // aspect ratio. The video preview also may be letterboxed at the top
-                // and bottom.
-                let width = view.bounds.width
-                let height = width * 4 / 3
-                let scaleX = width / CGFloat(YOLO.inputWidth)
-                let scaleY = height / CGFloat(YOLO.inputHeight)
-                let top = (view.bounds.height - height) / 2
-                
-                // Translate and scale the rectangle to our own coordinate system.
-                var rect = prediction.rect
-                rect.origin.x *= scaleX
-                rect.origin.y *= scaleY
-                rect.origin.y += top
-                rect.size.width *= scaleX
-                rect.size.height *= scaleY
-                
-                // Show the bounding box.
-                let label = String(format: "%@ %.1f", labels[prediction.classIndex], prediction.score * 100)
-                lastFoundItems.append(labels[prediction.classIndex])
-                let color = colors[prediction.classIndex]
-                boundingBoxes[i].show(frame: rect, label: label, color: color)
-            } else {
-                boundingBoxes[i].hide()
-            }
-        }
-    }
 }
 
 extension GameViewController: VideoCaptureDelegate {
     func videoCapture(_ capture: VideoCapture, didCaptureVideoFrame pixelBuffer: CVPixelBuffer?, timestamp: CMTime) {
-        // For debugging.
-        //predict(image: UIImage(named: "dog416")!); return
-        
-        semaphore.wait()
-        
         if let pixelBuffer = pixelBuffer {
-            // For better throughput, perform the prediction on a background queue
-            // instead of on the VideoCapture queue. We use the semaphore to block
-            // the capture queue and drop frames when Core ML can't keep up.
-            DispatchQueue.global().async {
-                self.predict(pixelBuffer: pixelBuffer)
-                //self.predictUsingVision(pixelBuffer: pixelBuffer)
+            if self.detectionRequested
+            {
+                self.predictUsingVision(pixelBuffer: pixelBuffer)
+                self.detectionRequested = false
             }
         }
     }

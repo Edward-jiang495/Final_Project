@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		55A9912E275717D300B26D2D /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9912D275717D300B26D2D /* PlayerModel.swift */; };
 		55A991302757200100B26D2D /* EnviornmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9912F2757200000B26D2D /* EnviornmentModel.swift */; };
+		8E49A66C2766BE7600181834 /* YOLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A6652766BE7200181834 /* YOLO.swift */; };
+		8E49A66D2766BE7600181834 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A6662766BE7200181834 /* Helpers.swift */; };
+		8E49A66E2766BE7600181834 /* YOLOv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A6672766BE7300181834 /* YOLOv3.mlmodel */; };
+		8E49A66F2766BE7600181834 /* VideoCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A6682766BE7400181834 /* VideoCapture.swift */; };
+		8E49A6702766BE7600181834 /* UIImage+CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A6692766BE7500181834 /* UIImage+CVPixelBuffer.swift */; };
+		8E49A6712766BE7600181834 /* BoundingBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A66A2766BE7600181834 /* BoundingBox.swift */; };
 		ABB5C32B2757122D0021C984 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C32A2757122D0021C984 /* AppDelegate.swift */; };
 		ABB5C32D2757122D0021C984 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C32C2757122D0021C984 /* SceneDelegate.swift */; };
 		ABB5C3352757122D0021C984 /* Final_project.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ABB5C3332757122D0021C984 /* Final_project.xcdatamodeld */; };
@@ -31,6 +37,13 @@
 /* Begin PBXFileReference section */
 		55A9912D275717D300B26D2D /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
 		55A9912F2757200000B26D2D /* EnviornmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviornmentModel.swift; sourceTree = "<group>"; };
+		8E49A6652766BE7200181834 /* YOLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YOLO.swift; sourceTree = "<group>"; };
+		8E49A6662766BE7200181834 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		8E49A6672766BE7300181834 /* YOLOv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3.mlmodel; sourceTree = "<group>"; };
+		8E49A6682766BE7400181834 /* VideoCapture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoCapture.swift; sourceTree = "<group>"; };
+		8E49A6692766BE7500181834 /* UIImage+CVPixelBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+CVPixelBuffer.swift"; sourceTree = "<group>"; };
+		8E49A66A2766BE7600181834 /* BoundingBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoundingBox.swift; sourceTree = "<group>"; };
+		8E49A66B2766BE7600181834 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../../YOLOv3-CoreML/YOLOv3-CoreML/YOLOv3-CoreML/AppDelegate.swift"; sourceTree = "<group>"; };
 		ABB5C3272757122D0021C984 /* $Final_project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = $Final_project.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABB5C32A2757122D0021C984 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABB5C32C2757122D0021C984 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +115,13 @@
 				ABB5C351275BCDE70021C984 /* GameModel.swift */,
 				ABB5C355275D5CE90021C984 /* CustomTableViewCell.swift */,
 				ABDB7362276568AF000C0ACC /* SnowFlakeManager.swift */,
+				8E49A66B2766BE7600181834 /* AppDelegate.swift */,
+				8E49A66A2766BE7600181834 /* BoundingBox.swift */,
+				8E49A6662766BE7200181834 /* Helpers.swift */,
+				8E49A6692766BE7500181834 /* UIImage+CVPixelBuffer.swift */,
+				8E49A6682766BE7400181834 /* VideoCapture.swift */,
+				8E49A6652766BE7200181834 /* YOLO.swift */,
+				8E49A6672766BE7300181834 /* YOLOv3.mlmodel */,
 			);
 			path = Final_project;
 			sourceTree = "<group>";
@@ -182,16 +202,22 @@
 			files = (
 				55A991302757200100B26D2D /* EnviornmentModel.swift in Sources */,
 				ABDB7363276568AF000C0ACC /* SnowFlakeManager.swift in Sources */,
+				8E49A66E2766BE7600181834 /* YOLOv3.mlmodel in Sources */,
 				55A9912E275717D300B26D2D /* PlayerModel.swift in Sources */,
+				8E49A6712766BE7600181834 /* BoundingBox.swift in Sources */,
 				ABB5C32B2757122D0021C984 /* AppDelegate.swift in Sources */,
 				ABB5C350275712F40021C984 /* FinishScreenViewController.swift in Sources */,
 				ABB5C352275BCDE70021C984 /* GameModel.swift in Sources */,
+				8E49A6702766BE7600181834 /* UIImage+CVPixelBuffer.swift in Sources */,
 				ABB5C34C275712EC0021C984 /* GameReadyViewController.swift in Sources */,
 				ABB5C3352757122D0021C984 /* Final_project.xcdatamodeld in Sources */,
 				ABB5C34E275712F00021C984 /* GameViewController.swift in Sources */,
 				ABB5C348275712E30021C984 /* VideoAnalgesic.swift in Sources */,
 				ABB5C32D2757122D0021C984 /* SceneDelegate.swift in Sources */,
+				8E49A66F2766BE7600181834 /* VideoCapture.swift in Sources */,
 				ABB5C34A275712E70021C984 /* HomeViewController.swift in Sources */,
+				8E49A66C2766BE7600181834 /* YOLO.swift in Sources */,
+				8E49A66D2766BE7600181834 /* Helpers.swift in Sources */,
 				ABB5C356275D5CE90021C984 /* CustomTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

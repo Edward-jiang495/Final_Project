@@ -220,7 +220,7 @@
                                             <color key="baseForegroundColor" systemColor="systemGreenColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="detectItem:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="xHd-Lc-tul"/>
+                                            <action selector="onDetectPress:" destination="FaM-Ii-oJf" eventType="touchUpInside" id="WNh-BL-XY4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYU-av-YBP">

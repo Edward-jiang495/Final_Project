@@ -44,16 +44,26 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var timer: Timer?
     lazy var timeLeft: Int = 69
     
+    var timeToHideTooltip: Int = -1
+    let timeToShowTooltip: Int = 5
+    
     @objc func onTimerFires()
     {
         timeLeft -= 1
         
-        DispatchQueue.main.async {
+        DispatchQueue.main.async
+        {
             self.timerLabel.text = "\(self.timeLeft)"
         }
         
-        if timeLeft <= 0 {
+        if timeLeft <= 0
+        {
             endGame()
+        }
+        
+        if timeLeft <= timeToHideTooltip
+        {
+            updateTableTooltip()
         }
     }
     
@@ -82,6 +92,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     {
         print("Detected Items: \(items)")
         
+        var foundItems: [String] = []
+        
         for item in items
         {
             if EnvironmentModel.shared.itemsInLocation[room]!.contains(item)
@@ -99,6 +111,8 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
                     {
                         print("Found: \(item)")
                     }
+                    
+                    foundItems.append(EnvironmentModel.shared.getHumanReadable(object: item))
                 }
             }
         }
@@ -111,7 +125,15 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         DispatchQueue.main.async
         {
             self.tableView.reloadData()
-            self.updateTableTooltip()
+            
+            if foundItems.isEmpty
+            {
+                self.updateTableTooltip()
+            }
+            else
+            {
+                self.showTooltip(message: "Found: " + foundItems.joined(separator: ", "))
+            }
         }
     }
     
@@ -197,6 +219,12 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         
         firstThreeObjectsToFind.text = tooltipItems.joined(separator: ", ")
+    }
+    
+    func showTooltip(message: String)
+    {
+        timeToHideTooltip = timeLeft - timeToShowTooltip
+        firstThreeObjectsToFind.text = message
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

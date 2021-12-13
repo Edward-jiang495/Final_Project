@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TCM-wr-OOT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TCM-wr-OOT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -165,6 +165,24 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nQg-50-rhz" secondAttribute="trailing" id="7Pi-qU-lCT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Bfm-f5-go1" secondAttribute="trailing" id="8dy-6y-51M"/>
+                                    <constraint firstItem="WPc-SJ-X04" firstAttribute="top" secondItem="yfJ-yf-lIF" secondAttribute="top" id="CAm-jO-9eN"/>
+                                    <constraint firstItem="Rwh-FP-SMU" firstAttribute="leading" secondItem="yfJ-yf-lIF" secondAttribute="leading" id="HBx-oa-sOZ"/>
+                                    <constraint firstItem="nQg-50-rhz" firstAttribute="leading" secondItem="yfJ-yf-lIF" secondAttribute="leading" id="NTA-Fw-5MG"/>
+                                    <constraint firstItem="WPc-SJ-X04" firstAttribute="leading" secondItem="yfJ-yf-lIF" secondAttribute="leading" id="Qes-y0-d1v"/>
+                                    <constraint firstItem="Hzq-us-AZi" firstAttribute="top" secondItem="WPc-SJ-X04" secondAttribute="bottom" constant="64" id="Vyk-EU-u8g"/>
+                                    <constraint firstItem="Rwh-FP-SMU" firstAttribute="top" secondItem="nQg-50-rhz" secondAttribute="bottom" constant="64" id="abM-OB-Xgs"/>
+                                    <constraint firstItem="Bfm-f5-go1" firstAttribute="top" secondItem="Hzq-us-AZi" secondAttribute="bottom" constant="64" id="bF9-nS-yzB"/>
+                                    <constraint firstItem="Bfm-f5-go1" firstAttribute="leading" secondItem="yfJ-yf-lIF" secondAttribute="leading" id="bXn-gd-CiZ"/>
+                                    <constraint firstItem="Hzq-us-AZi" firstAttribute="leading" secondItem="yfJ-yf-lIF" secondAttribute="leading" id="o8J-3V-ahE"/>
+                                    <constraint firstAttribute="bottom" secondItem="Rwh-FP-SMU" secondAttribute="bottom" id="opE-ld-aYD"/>
+                                    <constraint firstAttribute="trailing" secondItem="WPc-SJ-X04" secondAttribute="trailing" id="qkl-v6-jh7"/>
+                                    <constraint firstItem="nQg-50-rhz" firstAttribute="top" secondItem="Bfm-f5-go1" secondAttribute="bottom" constant="64" id="rWc-FU-LAc"/>
+                                    <constraint firstAttribute="trailing" secondItem="Hzq-us-AZi" secondAttribute="trailing" id="ri3-h5-LZ5"/>
+                                    <constraint firstAttribute="trailing" secondItem="Rwh-FP-SMU" secondAttribute="trailing" id="xJU-JA-vM7"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="PaF-eF-ovM"/>
@@ -197,9 +215,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQD-86-LEg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQD-86-LEg">
                                 <rect key="frame" x="84" y="84" width="246" height="26.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
                                 <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
@@ -257,6 +274,9 @@
                         <constraints>
                             <constraint firstItem="BoY-Ze-HOC" firstAttribute="top" secondItem="OTo-Us-Cun" secondAttribute="bottom" constant="150" id="Hti-nh-yCo"/>
                             <constraint firstItem="OTo-Us-Cun" firstAttribute="leading" secondItem="Hnc-na-gAV" secondAttribute="leading" id="MhB-7W-pcL"/>
+                            <constraint firstItem="eQD-86-LEg" firstAttribute="leading" secondItem="Hnc-na-gAV" secondAttribute="leading" constant="84" id="WQ0-SW-YYy"/>
+                            <constraint firstItem="eQD-86-LEg" firstAttribute="top" secondItem="o2n-gJ-Fhp" secondAttribute="top" constant="84" id="b4q-sv-ivV"/>
+                            <constraint firstItem="Hnc-na-gAV" firstAttribute="trailing" secondItem="eQD-86-LEg" secondAttribute="trailing" constant="84" id="ovG-zD-fxu"/>
                             <constraint firstAttribute="trailing" secondItem="OTo-Us-Cun" secondAttribute="trailing" id="qxP-nm-7Gz"/>
                             <constraint firstItem="Hnc-na-gAV" firstAttribute="trailing" secondItem="BoY-Ze-HOC" secondAttribute="trailing" constant="80" id="uoy-kX-cRZ"/>
                             <constraint firstItem="Hnc-na-gAV" firstAttribute="bottom" secondItem="BoY-Ze-HOC" secondAttribute="bottom" id="v4q-fu-xgb"/>
@@ -341,13 +361,29 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="wFn-Ky-HYq" secondAttribute="trailing" id="3cD-Rk-sHe"/>
+                                    <constraint firstItem="ygg-Qk-acw" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="53m-mt-1vs"/>
                                     <constraint firstAttribute="trailing" secondItem="2Vd-cP-Fwu" secondAttribute="trailing" id="A4Y-D8-Lla"/>
+                                    <constraint firstItem="wFn-Ky-HYq" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="DZw-1H-Zvt"/>
+                                    <constraint firstAttribute="trailing" secondItem="jv5-zp-UfY" secondAttribute="trailing" id="GJC-N2-OJJ"/>
+                                    <constraint firstItem="wFn-Ky-HYq" firstAttribute="top" secondItem="KuP-oA-YSY" secondAttribute="bottom" id="M1T-8G-3hb"/>
+                                    <constraint firstAttribute="trailing" secondItem="ygg-Qk-acw" secondAttribute="trailing" id="M3Q-u0-hXV"/>
                                     <constraint firstItem="wFn-Ky-HYq" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="Q9y-Sy-Ngv"/>
+                                    <constraint firstItem="KuP-oA-YSY" firstAttribute="top" secondItem="2Vd-cP-Fwu" secondAttribute="bottom" id="QTz-jz-tFv"/>
+                                    <constraint firstAttribute="trailing" secondItem="KuP-oA-YSY" secondAttribute="trailing" id="SaE-TO-KGS"/>
                                     <constraint firstItem="ygg-Qk-acw" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="b1M-pB-Kpi"/>
+                                    <constraint firstItem="2Vd-cP-Fwu" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="bI4-fM-IO0"/>
                                     <constraint firstItem="KuP-oA-YSY" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="gc7-j2-ucP"/>
+                                    <constraint firstItem="2Vd-cP-Fwu" firstAttribute="top" secondItem="cLO-gy-91G" secondAttribute="top" id="gyz-88-68A"/>
                                     <constraint firstItem="2Vd-cP-Fwu" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="iCa-DZ-Vrk"/>
+                                    <constraint firstItem="jv5-zp-UfY" firstAttribute="top" secondItem="ygg-Qk-acw" secondAttribute="bottom" id="kdU-pW-Ygg"/>
+                                    <constraint firstItem="KuP-oA-YSY" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="lhd-oI-x7J"/>
                                     <constraint firstAttribute="trailing" secondItem="ygg-Qk-acw" secondAttribute="trailing" id="oLE-ib-Jal"/>
+                                    <constraint firstItem="ygg-Qk-acw" firstAttribute="top" secondItem="wFn-Ky-HYq" secondAttribute="bottom" id="plO-F1-dTk"/>
+                                    <constraint firstAttribute="trailing" secondItem="wFn-Ky-HYq" secondAttribute="trailing" id="qRY-Lv-E1B"/>
+                                    <constraint firstItem="jv5-zp-UfY" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="qc1-JG-COQ"/>
                                     <constraint firstAttribute="trailing" secondItem="KuP-oA-YSY" secondAttribute="trailing" id="rsO-6c-a2X"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Vd-cP-Fwu" secondAttribute="trailing" id="tG3-xf-xon"/>
+                                    <constraint firstAttribute="bottom" secondItem="jv5-zp-UfY" secondAttribute="bottom" id="vt5-hv-YV8"/>
                                 </constraints>
                             </stackView>
                         </subviews>

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		55A9912E275717D300B26D2D /* PlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9912D275717D300B26D2D /* PlayerModel.swift */; };
-		55A991302757200100B26D2D /* EnviornmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9912F2757200000B26D2D /* EnviornmentModel.swift */; };
+		55A991302757200100B26D2D /* EnvironmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A9912F2757200000B26D2D /* EnvironmentModel.swift */; };
 		8E49A66C2766BE7600181834 /* YOLO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A6652766BE7200181834 /* YOLO.swift */; };
 		8E49A66D2766BE7600181834 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A6662766BE7200181834 /* Helpers.swift */; };
 		8E49A66E2766BE7600181834 /* YOLOv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8E49A6672766BE7300181834 /* YOLOv3.mlmodel */; };
@@ -36,7 +36,7 @@
 
 /* Begin PBXFileReference section */
 		55A9912D275717D300B26D2D /* PlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerModel.swift; sourceTree = "<group>"; };
-		55A9912F2757200000B26D2D /* EnviornmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnviornmentModel.swift; sourceTree = "<group>"; };
+		55A9912F2757200000B26D2D /* EnvironmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentModel.swift; sourceTree = "<group>"; };
 		8E49A6652766BE7200181834 /* YOLO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YOLO.swift; sourceTree = "<group>"; };
 		8E49A6662766BE7200181834 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		8E49A6672766BE7300181834 /* YOLOv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3.mlmodel; sourceTree = "<group>"; };
@@ -95,33 +95,33 @@
 		ABB5C3292757122D0021C984 /* Final_project */ = {
 			isa = PBXGroup;
 			children = (
-				55A9912F2757200000B26D2D /* EnviornmentModel.swift */,
-				55A9912D275717D300B26D2D /* PlayerModel.swift */,
-				ABB5C32A2757122D0021C984 /* AppDelegate.swift */,
-				ABB5C32C2757122D0021C984 /* SceneDelegate.swift */,
-				ABDB73502763AFDF000C0ACC /* PWHappyChristmas.ttf */,
-				ABDB73522763AFEC000C0ACC /* Christmas Icons.ttf */,
+				8E49A6672766BE7300181834 /* YOLOv3.mlmodel */,
 				ABDB73582763DAE3000C0ACC /* Snowy Christmas - Personal Use.otf */,
-				ABB5C3362757122E0021C984 /* Assets.xcassets */,
 				ABB5C33B2757122E0021C984 /* Info.plist */,
-				ABB5C3332757122D0021C984 /* Final_project.xcdatamodeld */,
-				ABB5C343275712D70021C984 /* Main.storyboard */,
 				ABB5C345275712DC0021C984 /* LaunchScreen.storyboard */,
-				ABB5C347275712E30021C984 /* VideoAnalgesic.swift */,
-				ABB5C349275712E70021C984 /* HomeViewController.swift */,
-				ABB5C34B275712EC0021C984 /* GameReadyViewController.swift */,
-				ABB5C34D275712F00021C984 /* GameViewController.swift */,
-				ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */,
-				ABB5C351275BCDE70021C984 /* GameModel.swift */,
-				ABB5C355275D5CE90021C984 /* CustomTableViewCell.swift */,
-				ABDB7362276568AF000C0ACC /* SnowFlakeManager.swift */,
+				ABB5C343275712D70021C984 /* Main.storyboard */,
+				ABB5C32A2757122D0021C984 /* AppDelegate.swift */,
 				8E49A66B2766BE7600181834 /* AppDelegate.swift */,
 				8E49A66A2766BE7600181834 /* BoundingBox.swift */,
+				ABB5C355275D5CE90021C984 /* CustomTableViewCell.swift */,
+				55A9912F2757200000B26D2D /* EnvironmentModel.swift */,
+				ABB5C34F275712F40021C984 /* FinishScreenViewController.swift */,
+				ABB5C351275BCDE70021C984 /* GameModel.swift */,
+				ABB5C34B275712EC0021C984 /* GameReadyViewController.swift */,
+				ABB5C34D275712F00021C984 /* GameViewController.swift */,
 				8E49A6662766BE7200181834 /* Helpers.swift */,
+				ABB5C349275712E70021C984 /* HomeViewController.swift */,
+				55A9912D275717D300B26D2D /* PlayerModel.swift */,
+				ABB5C32C2757122D0021C984 /* SceneDelegate.swift */,
+				ABDB7362276568AF000C0ACC /* SnowFlakeManager.swift */,
 				8E49A6692766BE7500181834 /* UIImage+CVPixelBuffer.swift */,
+				ABB5C347275712E30021C984 /* VideoAnalgesic.swift */,
 				8E49A6682766BE7400181834 /* VideoCapture.swift */,
 				8E49A6652766BE7200181834 /* YOLO.swift */,
-				8E49A6672766BE7300181834 /* YOLOv3.mlmodel */,
+				ABDB73522763AFEC000C0ACC /* Christmas Icons.ttf */,
+				ABDB73502763AFDF000C0ACC /* PWHappyChristmas.ttf */,
+				ABB5C3362757122E0021C984 /* Assets.xcassets */,
+				ABB5C3332757122D0021C984 /* Final_project.xcdatamodeld */,
 			);
 			path = Final_project;
 			sourceTree = "<group>";
@@ -200,7 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55A991302757200100B26D2D /* EnviornmentModel.swift in Sources */,
+				55A991302757200100B26D2D /* EnvironmentModel.swift in Sources */,
 				ABDB7363276568AF000C0ACC /* SnowFlakeManager.swift in Sources */,
 				8E49A66E2766BE7600181834 /* YOLOv3.mlmodel in Sources */,
 				55A9912E275717D300B26D2D /* PlayerModel.swift in Sources */,

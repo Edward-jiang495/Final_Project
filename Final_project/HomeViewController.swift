@@ -67,9 +67,9 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         super.viewDidAppear(animated)
         var completedRooms = PlayerModel.shared.completedRooms
         print(completedRooms)
-        easyRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "easy")
-        mediumRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "medium")
-        hardRooms = EnviornmentModel.shared.getRoomWithDifficulty(diff: "hard")
+        easyRooms = EnvironmentModel.shared.getRoomWithDifficulty(diff: "easy")
+        mediumRooms = EnvironmentModel.shared.getRoomWithDifficulty(diff: "medium")
+        hardRooms = EnvironmentModel.shared.getRoomWithDifficulty(diff: "hard")
         for element in completedRooms{
             let easyRoomIdx  = easyRooms.firstIndex(of: element)
             if easyRoomIdx != nil{

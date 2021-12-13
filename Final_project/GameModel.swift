@@ -14,14 +14,4 @@ class GameModel :NSObject {
     private override init() {
         super.init()
     }
-    
-    func getRoom()->String{
-        var newroom = currentRoom.replacingOccurrences(of: "⭐", with: "")
-        return newroom
-    }
-    func setRoom(room: String){
-        var newroom = room.replacingOccurrences(of: "⭐", with: "")
-        currentRoom = newroom
-    }
-
 }

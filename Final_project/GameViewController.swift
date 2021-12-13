@@ -6,9 +6,6 @@ import VideoToolbox
 
 class GameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var transparentView = UIView()
-    var tableView = UITableView()
-    var height:CGFloat = 250
     var room:String = GameModel.shared.getRoom();
     var itemsToFind:[String] = PlayerModel.shared.getRemainingItemsWithRoom(room: GameModel.shared.getRoom());
     var itemsFound:[String] = PlayerModel.shared.getStartingItemsFoundWithRoom(room: GameModel.shared.getRoom());
@@ -17,6 +14,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // YOLO Setup
         setUpBoundingBoxes()
         setUpCoreImage()
         setUpVision()
@@ -24,10 +22,12 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         frameCapturingStartTime = CACurrentMediaTime()
         
+        // Navigation
         self.navigationItem.setHidesBackButton(true, animated: false)
         
+        // Item Preparation
         totalItems = itemsToFind + itemsFound
-        timeLeft = EnviornmentModel.shared.getTimeWithRooms(room: room)
+        timeLeft = EnvironmentModel.shared.getTimeWithRooms(room: room)
         timerLabel.text = String(timeLeft)
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
         
@@ -44,6 +44,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         firstThreeObjectsToFind.text = objToFind3
         
+        // table
         tableView.isScrollEnabled = true;
         tableView.delegate = self
         tableView.dataSource = self
@@ -57,7 +58,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     @IBOutlet weak var timerLabel: UILabel!
     
-    @IBOutlet weak var firstThreeObjectsToFind: UITextView!
+    // MARK: Game State
     
     @objc func onTimerFires()
     {
@@ -82,9 +83,9 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func quit(_ sender: UIButton) {
         timer?.invalidate()
         timer = nil
-        
     }
     
+    // MARK: Detection Handling
     
     @IBAction func onDetectPress(_ sender: UIButton) {
         print("Detection requested.")
@@ -128,6 +129,13 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
             //            }
         }
     }
+    
+    // MARK: Table Gestures
+    @IBOutlet weak var firstThreeObjectsToFind: UITextView!
+    
+    var transparentView = UIView()
+    var tableView = UITableView()
+    var height:CGFloat = 250
     
     @IBAction func swipe(_ sender: UISwipeGestureRecognizer) {
         switch sender.direction {

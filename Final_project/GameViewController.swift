@@ -4,12 +4,13 @@ import AVFoundation
 import CoreMedia
 import VideoToolbox
 
-class GameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class GameViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+{
+    @IBOutlet weak var videoPreview: UIView!
+    @IBOutlet weak var timerLabel: UILabel!
     
-    var room:String = GameModel.shared.getRoom();
-    var itemsToFind:[String] = PlayerModel.shared.getRemainingItemsWithRoom(room: GameModel.shared.getRoom());
-    var itemsFound:[String] = PlayerModel.shared.getStartingItemsFoundWithRoom(room: GameModel.shared.getRoom());
-    var totalItems:[String] = []
+    let room = GameModel.shared.currentRoom
+    let items = EnvironmentModel.shared.itemsInLocation[GameModel.shared.currentRoom]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,64 +26,49 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Navigation
         self.navigationItem.setHidesBackButton(true, animated: false)
         
-        // Item Preparation
-        totalItems = itemsToFind + itemsFound
-        timeLeft = EnvironmentModel.shared.getTimeWithRooms(room: room)
-        timerLabel.text = String(timeLeft)
+        // Timer Setup
+        timeLeft = EnvironmentModel.shared.times[room]!
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(onTimerFires), userInfo: nil, repeats: true)
+        timerLabel.text = String(timeLeft)
         
-        var objToFind3 = ""
-        if itemsToFind.count >= 3{
-            //                more than three items to find
-            let arrSlice = itemsToFind[0...2]
-            objToFind3 = arrSlice.joined(separator:", ")
-            
-        }
-        else{
-            //                less than 3 items to find
-            objToFind3 = itemsToFind.joined(separator:", ")
-        }
-        firstThreeObjectsToFind.text = objToFind3
-        
-        // table
+        // Table setup
         tableView.isScrollEnabled = true;
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CustomTableViewCell.self, forCellReuseIdentifier: "Cell")
+        updateTableTooltip()
     }
     
-    @IBOutlet weak var videoPreview: UIView!
+    // MARK: Game State
     
     var timer: Timer?
-    lazy var timeLeft = 10
-    
-    @IBOutlet weak var timerLabel: UILabel!
-    
-    // MARK: Game State
+    lazy var timeLeft: Int = 69
     
     @objc func onTimerFires()
     {
         timeLeft -= 1
+        
         DispatchQueue.main.async {
             self.timerLabel.text = "\(self.timeLeft)"
         }
         
         if timeLeft <= 0 {
-            timer?.invalidate()
-            timer = nil
-            timerLabel.text = ""
-            performSegue(withIdentifier: "goToEndGame", sender: nil)
-            timeLeft = 3
-            DispatchQueue.main.async {
-                self.timerLabel.text = ""
-            }
+            endGame()
         }
     }
     
-    
     @IBAction func quit(_ sender: UIButton) {
+        endGame()
+    }
+    
+    func endGame()
+    {
         timer?.invalidate()
-        timer = nil
+        
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "goToEndGame", sender: nil)
+            self.timerLabel.text = ""
+        }
     }
     
     // MARK: Detection Handling
@@ -94,39 +80,38 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func onDetectedItems(_ items: [String])
     {
+        print("Detected Items: \(items)")
+        
         for item in items
         {
-            print("looking at \(item)")
-            
-            //            if let index = itemsToFind.firstIndex(of:item){
-            //                let element = itemsToFind.remove(at: index)
-            //                itemsFound.append(element)
-            //                print("player newly found: \(element)")
-            //            }
-            //            PlayerModel.shared.addFoundItem(room: room, itemFound: item)
-            //
-            //            if let index = totalItems.firstIndex(of: item) {
-            //                var element = totalItems.remove(at: index)
-            //                element = element + "⭐"
-            //                //            remove from beginning and append to the end
-            //                //            WITH A STAR
-            //                var objToFind3 = ""
-            //                if itemsToFind.count >= 3{
-            //                    //                more than three items to find
-            //                    var arrSlice = itemsToFind[0...2]
-            //                    objToFind3 = arrSlice.joined(separator:", ")
-            //
-            //                }
-            //                else{
-            //                    //                less than 3 items to find
-            //                    objToFind3 = itemsToFind.joined(separator:", ")
-            //                }
-            //                firstThreeObjectsToFind.text = objToFind3
-            //
-            //                totalItems.append(element)
-            //                tableView.reloadData()
-            //                //            reload table
-            //            }
+            if EnvironmentModel.shared.itemsInLocation[room]!.contains(item)
+            {
+                let inserted = GameModel.shared.itemsFoundForRound.insert(item).inserted
+                
+                if inserted
+                {
+                    if PlayerModel.shared.findItem(item: item)
+                    {
+                        print("First-time Finding: \(item)")
+                    }
+                    
+                    else
+                    {
+                        print("Found: \(item)")
+                    }
+                }
+            }
+        }
+        
+        if EnvironmentModel.shared.itemsInLocation[room]!.count == GameModel.shared.itemsFoundForRound.count
+        {
+            endGame()
+        }
+        
+        DispatchQueue.main.async
+        {
+            self.tableView.reloadData()
+            self.updateTableTooltip()
         }
     }
     
@@ -171,7 +156,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //        return number of items in room
-        return totalItems.count
+        return EnvironmentModel.shared.itemsInLocation[room]!.count
         
     }
     
@@ -179,13 +164,44 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CustomTableViewCell else{
             fatalError("unable to deque cell")
         }
-        cell.label.text = totalItems[indexPath.row]
+        
+        let item = EnvironmentModel.shared.getHumanReadable(object: EnvironmentModel.shared.itemsInLocation[room]![indexPath.row])
+        
+        if GameModel.shared.itemsFoundForRound.contains(item)
+        {
+            cell.label.text = "✅" + item
+        }
+        
+        else
+        {
+            cell.label.text = item
+        }
+        
         return cell
+    }
+    
+    func updateTableTooltip()
+    {
+        var tooltipItems: [String] = []
+        
+        for item in items {
+            if !GameModel.shared.itemsFoundForRound.contains(item)
+            {
+                tooltipItems.append(EnvironmentModel.shared.getHumanReadable(object: item))
+            }
+            
+            if tooltipItems.count >= 3
+            {
+                break
+            }
+        }
+        
+        firstThreeObjectsToFind.text = tooltipItems.joined(separator: ", ")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? FinishScreenViewController{
-            vc.timeRemained = timeLeft
+            vc.remainingTime = timeLeft
         }
     }
     
@@ -275,7 +291,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    // MARK: - UI stuff
+    // MARK: - UI
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -290,7 +306,7 @@ class GameViewController: UIViewController, UITableViewDataSource, UITableViewDe
         videoCapture.previewLayer?.frame = videoPreview.bounds
     }
     
-    // MARK: - Doing inference
+    // MARK: - Predictions / Vision
     
     func predictUsingVision(pixelBuffer: CVPixelBuffer) {
         print("Performing Vision Request...")

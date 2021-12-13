@@ -1,43 +1,102 @@
 import UIKit
 class FinishScreenViewController: UIViewController {
 
-    var timeRemained:Int = 0 ;
+    var remainingTime: Int = 0;
+    
+    @IBOutlet weak var timeRemaining: UILabel!
+    @IBOutlet weak var scoringInfoLabel: UILabel!
+    @IBOutlet weak var score: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.setHidesBackButton(true, animated: false)
-        timeRemaining.text = String(timeRemained) + " seconds remaining"
-        var room = GameModel.shared.getRoom()
         
-        var itemsfound = PlayerModel.shared.getStartingItemsFoundWithRoom(room: room)
-        var itemsfound_str = itemsfound.joined(separator:" > ")
-//        > is the snow man in snowy chrismas font
+        let room = GameModel.shared.currentRoom
+        
         createAnimation()
-        itemsFound.text = "Founded: " + itemsfound_str
-        var itemsnotfound = PlayerModel.shared.getRemainingItemsWithRoom(room: room)
-        if itemsnotfound.count == 0{
-            itemsNotFound.text = "Congratulation, you completed " + room + "⭐"
-            createAnimation()
+        
+        // Time Remaining
+        timeRemaining.text = String(remainingTime) + " seconds remaining"
+        
+        var scoringInfo: String = ""
+        var points: Int = 0
+        
+        for item in EnvironmentModel.shared.itemsInLocation[room]!
+        {
+            let readable = EnvironmentModel.shared.getHumanReadable(object: item)
+            if GameModel.shared.itemsFoundForRound.contains(item)
+            {
+                scoringInfo.append("✔\t\(readable)\t100\n")
+                points += 100
+            }
+            else
+            {
+                scoringInfo.append("\t\(readable)\t0\n")
+            }
         }
-        else{
-            var itemsnotfound_str = itemsnotfound.joined(separator:" > ")
-            itemsNotFound.text = "Not founded: " + itemsnotfound_str
+        
+        if GameModel.shared.itemsFoundForRound.count == EnvironmentModel.shared.itemsInLocation[room]!.count
+        {
+            let timeBonus = remainingTime * 10
+            scoringInfo.append("Time Bonus\t\t\t\(timeBonus)\n")
+            
+            points += timeBonus
+            
+            score.text = "⭐️ Room was completed! ⭐️"
+            PlayerModel.shared.completedRooms.insert(room)
         }
-        var points = itemsfound.count * 100
-        if itemsnotfound.count == 0{
-            points = points + timeRemained * 10
+        
+        else
+        {
+            score.text = "Room wasn't completed..."
         }
-        if PlayerModel.shared.getHighScoreWithRoom(room: room) < points{
-            PlayerModel.shared.saveRoomHighscore(room: room, newHighscore: points)
+        
+        scoringInfoLabel.text = scoringInfo
+        
+        if PlayerModel.shared.saveScore(room: room, score: points)
+        {
             score.text = "New Highscore: " + String(points)
         }
-        else{
-            score.text = "Score: " + String(points)
+        else
+        {
+            score.text = "Total Score: " + String(points)
         }
-        PlayerModel.shared.saveRoomAsComplete(room: room)
         
-
+        GameModel.shared.itemsFoundForRound.removeAll()
         
+        
+//        // Items Found
+//        itemsFound.text = "Found: " + GameModel.shared.itemsFoundForRound.joined(separator: ", ")
+//
+//        // Items Missed
+//        let itemsMissed = PlayerModel.shared.getMissedItems(room: room)
+//
+//        if itemsMissed.count > 0
+//        {
+//            itemsNotFound.text = "Congratulations! \(room) completed! ⭐️"
+//            PlayerModel.shared.completeRoom(room: room)
+//        }
+//        else
+//        {
+//            itemsNotFound.text = "Missed: " + itemsMissed.joined(separator: ", ")
+//        }
+//
+//        // Score
+//        var points = GameModel.shared.itemsFoundForRound.count * 100
+//
+//        if GameModel.shared.itemsFoundForRound.count == EnvironmentModel.shared.itemsInLocation[room]!.count
+//        {
+//            points += remainingTime * 10
+//        }
+//
+//        if PlayerModel.shared.saveScore(room: room, score: points)
+//        {
+//            score.text = "New Highscore: " + String(points)
+//        }
+//        else
+//        {
+//            score.text = "Score: " + String(points)
+//        }
     }
     
     func createAnimation(){
@@ -68,24 +127,7 @@ class FinishScreenViewController: UIViewController {
         view.layer.addSublayer(layer)
     }
     
-    
-    
-    
-    @IBOutlet weak var timeRemaining: UILabel!
-    
-    
-    @IBOutlet weak var itemsFound: UILabel!
-    
-    
-    @IBOutlet weak var itemsNotFound: UILabel!
-    
-    
-    @IBOutlet weak var score: UILabel!
-    
     @IBAction func replay(_ sender: UIButton) {
         let _ = navigationController?.popToRootViewController(animated: true)
-
     }
-    
-
 }

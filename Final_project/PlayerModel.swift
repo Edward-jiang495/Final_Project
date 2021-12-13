@@ -32,10 +32,12 @@ class PlayerModel: NSObject {
             defaults:
                 [
                     "scores": scores,
-                    "completedRooms": completedRooms,
-                    "foundItems": foundItems,
+                    "completedRooms": Array(completedRooms),
+                    "foundItems": Array(foundItems),
                 ]
         )
+        
+        loadDefaults()
     }
     
     // MARK: UserDefaults
@@ -43,15 +45,15 @@ class PlayerModel: NSObject {
     private func saveDefaults()
     {
         UserDefaults.standard.set(scores, forKey: "scores")
-        UserDefaults.standard.set(completedRooms, forKey: "completedRooms")
-        UserDefaults.standard.set(foundItems, forKey: "foundItems")
+        UserDefaults.standard.set(Array(completedRooms), forKey: "completedRooms")
+        UserDefaults.standard.set(Array(foundItems), forKey: "foundItems")
     }
     
     private func loadDefaults()
     {
         scores = UserDefaults.standard.object(forKey: "scores") as! [String: Int]
-        completedRooms = UserDefaults.standard.object(forKey: "completedRooms") as! Set<String>
-        foundItems = UserDefaults.standard.object(forKey: "foundItems") as! Set<String>
+        completedRooms = Set(UserDefaults.standard.object(forKey: "completedRooms") as! [String])
+        foundItems = Set(UserDefaults.standard.object(forKey: "foundItems") as! [String])
     }
     
     func reset()
@@ -79,7 +81,7 @@ class PlayerModel: NSObject {
     
     func getMissedItems(room: String) -> [String]
     {
-        let roomItems = EnvironmentModel.shared.locations[room]!
+        let roomItems = EnvironmentModel.shared.itemsInLocation[room]!
         
         var roomItemsSet = Set(roomItems)
         roomItemsSet.subtract(foundItems)
@@ -89,19 +91,21 @@ class PlayerModel: NSObject {
     
     // MARK: Room Tracking
     
-    func saveScore(room: String, score: Int)
+    func saveScore(room: String, score: Int) -> Bool
     {
         // if oldScore is better, ignore
         if let oldScore = scores[room]
         {
             if score <= oldScore
             {
-                return
+                return false
             }
         }
         
         scores[room] = score
         saveDefaults()
+        
+        return true
     }
     
     func completeRoom(room: String) -> Bool
@@ -115,111 +119,4 @@ class PlayerModel: NSObject {
         
         return inserted
     }
-    
-    //    var highScorePerRoom:[String:Int] = EnviornmentModel.shared.startingHighscores;
-    //    var completedRooms:[String] = [];
-    //    var itemsFound:[String:[String]] = EnviornmentModel.shared.startingItemsFound;
-    //
-    //
-    //    private override init() {
-    //        super.init();
-    //        UserDefaults.standard.register(
-    //            defaults: [
-    //                "highScorePerRoom": EnviornmentModel.shared.startingHighscores,
-    //                "completedRooms": [],
-    //                "itemsFound": EnviornmentModel.shared.startingItemsFound
-    //            ]
-    //        );
-    //        loadLocalStorage()
-    //
-    //
-    //
-    //    }
-    //
-    //    private func loadLocalStorage(){
-    //        highScorePerRoom = UserDefaults.standard.object(forKey:"highScorePerRoom") as! [String : Int];
-    //        completedRooms = UserDefaults.standard.object(forKey:"completedRooms") as! [String];
-    //        itemsFound = UserDefaults.standard.object(forKey:"itemsFound") as! [String : [String]];
-    //    }
-    //
-    //    func saveLocalStorage(){
-    //        UserDefaults.standard.set(highScorePerRoom, forKey:"highScorePerRoom");
-    //        UserDefaults.standard.set(completedRooms, forKey:"completedRooms");
-    //        UserDefaults.standard.set(itemsFound, forKey:"itemsFound");
-    //    }
-    //
-    //    func addFoundItem(room:String, itemFound:String){
-    //       //add item if new
-    //        var newroom = room.replacingOccurrences(of: "⭐", with: "")
-    //        if !(itemsFound[newroom]?.contains(itemFound) ?? false) {
-    //            itemsFound[newroom]?.append(itemFound);
-    //            UserDefaults.standard.set(itemsFound, forKey:"itemsFound");
-    //        }
-    //    }
-    //
-    //    func saveRoomHighscore(room: String, newHighscore: Int){
-    //        var newroom = room.replacingOccurrences(of: "⭐", with: "")
-    //        highScorePerRoom[newroom] = newHighscore;
-    //        UserDefaults.standard.set(highScorePerRoom, forKey:"highScorePerRoom");
-    //    }
-    //
-    //    func saveRoomAsComplete(room: String){
-    //        var newroom = room.replacingOccurrences(of: "⭐", with: "")
-    //
-    //        if !completedRooms.contains(newroom) {
-    //            completedRooms.append(newroom);
-    //            UserDefaults.standard.set(completedRooms, forKey:"completedRooms");
-    //        }
-    //    }
-    //
-    //    func resetPlayer(){
-    //        highScorePerRoom = EnviornmentModel.shared.startingHighscores;
-    //        completedRooms = [];
-    //        itemsFound = EnviornmentModel.shared.startingItemsFound;
-    //        UserDefaults.standard.removeObject(forKey:"highScorePerRoom");
-    //        UserDefaults.standard.removeObject(forKey:"completedRooms");
-    //        UserDefaults.standard.removeObject(forKey:"itemsFound");
-    //
-    //    }
-    //
-    //    func percentNotFound() -> Double{
-    //        //change 100 to the total number of items that can be found
-    //        var totalItemsFound = 0;
-    //
-    //        for (_,items) in itemsFound {
-    //            totalItemsFound += items.count;
-    //        }
-    //
-    //        var result = Double(totalItemsFound)/Double(EnviornmentModel.shared.numTotalItems) * 100
-    ////        convert to percentage
-    //        result = Double(round(100 * result) / 100);
-    ////        coerce to 2 decimal place
-    //        return result;
-    //    }
-    //
-    //    func getHighScoreWithRoom(room:String) -> Int{
-    //        var newroom = room.replacingOccurrences(of: "⭐", with: "")
-    //
-    //        return highScorePerRoom[newroom]!
-    //    }
-    //
-    //    func getRemainingItemsWithRoom(room:String) ->[String]{
-    //        var newroom = room.replacingOccurrences(of: "⭐", with: "")
-    //
-    //        var items = EnviornmentModel.shared.getItemsWithRoom(room: newroom)
-    //        var itemsNotFound:[String] = []
-    //        for element in items{
-    //            if !(itemsFound[newroom]?.contains(element))!{
-    //                itemsNotFound.append(element)
-    //            }
-    //        }
-    //        return itemsNotFound
-    //    }
-    //
-    //    func getStartingItemsFoundWithRoom(room: String) ->[String]{
-    //        var newroom = room.replacingOccurrences(of: "⭐", with: "")
-    //        return itemsFound[newroom]!
-    //    }
-    
-    
 }

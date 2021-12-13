@@ -7,16 +7,30 @@ class EnvironmentModel: NSObject {
     
     static let shared = EnvironmentModel();
     
+    override init() {
+        super.init()
+        
+        
+    }
+    
     // MARK: Locations & Objects
     
     var objectCount: Int {
         get {
-            let counts = locations.map {$0.value.count}
+            let counts = itemsInLocation.map {$0.value.count}
             return counts.reduce(0, +)
         }
     }
     
-    let locations: [String: [String]] =
+    var locations: [String]
+    {
+        get
+        {
+            return Array(itemsInLocation.keys)
+        }
+    }
+    
+    let itemsInLocation: [String: [String]] =
     [
         "bedroom":
             [
@@ -125,7 +139,7 @@ class EnvironmentModel: NSObject {
             output = corrected
         }
         
-        return output.uppercased()
+        return output.capitalized
     }
     
     // MARK: Timing
@@ -142,10 +156,12 @@ class EnvironmentModel: NSObject {
     
     // MARK: Difficulty
     
-    let difficulties: [String: [String]] =
+    let roomsInDifficulty: [String: [String]] =
     [
         "easy": ["bedroom", "living room"],
         "medium": ["kitchen", "gymnasium"],
         "hard": ["zoo", "airport"],
     ]
+    
+    let difficulties: [String] = ["easy", "medium", "hard"]
 }

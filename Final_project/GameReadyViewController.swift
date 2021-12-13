@@ -1,45 +1,32 @@
 
 import UIKit
 
-class GameReadyViewController: UIViewController {
-
+class GameReadyViewController: UIViewController
+{
+    @IBOutlet weak var highScore: UILabel!
+    @IBOutlet weak var items: UILabel!
+    @IBOutlet weak var locations: UILabel!
+    @IBOutlet weak var time: UILabel!
+    @IBOutlet weak var readyButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var room = GameModel.shared.getRoom()
-        locations.text = room
-        time.text = String(EnvironmentModel.shared.getTimeWithRooms(room: room)) + " seconds "
-        highScore.text = "Highscore: " + String(PlayerModel.shared.getHighScoreWithRoom(room: room))
-        var remainingitems = PlayerModel.shared.getRemainingItemsWithRoom(room: room)
-        var remainingitemstxt = remainingitems.joined(separator: " > ");
         
-        items.text = remainingitemstxt
+        let room = GameModel.shared.currentRoom
+        
+        locations.text = room.capitalized
+        
+        time.text = "Time: " + String(EnvironmentModel.shared.times[room]!)
+        
+        highScore.text = "Highscore: " + String(PlayerModel.shared.scores[room] ?? 0)
+        
+        let itemText = EnvironmentModel.shared.itemsInLocation[room]!
+        items.text = itemText.map { EnvironmentModel.shared.getHumanReadable(object: $0) }.joined(separator: " - ")
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//
-//        
-//
-//    }
-    @IBOutlet weak var highScore: UILabel!
-    
-    @IBOutlet weak var items: UILabel!
-    
-    @IBOutlet weak var locations: UILabel!
-    
-    @IBOutlet weak var time: UILabel!
-    
-    @IBOutlet weak var readyButton: UIButton!
-    
-    
-    @IBAction func ready(_ sender: UIButton) {
-        
-        
-    }
-    
-
+    @IBAction func ready(_ sender: UIButton) {}
 }

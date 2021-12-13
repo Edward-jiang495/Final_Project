@@ -300,35 +300,8 @@
                                         <color key="textColor" systemColor="linkColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygg-Qk-acw">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="vPu-3l-aRT"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
-                                        <color key="textColor" systemColor="systemBlueColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items Found " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFn-Ky-HYq">
-                                        <rect key="frame" x="0.0" y="100" width="414" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="rEr-Rz-PlV"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
-                                        <color key="textColor" systemColor="systemBlueColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items not found:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Kc-QV-CU1">
-                                        <rect key="frame" x="0.0" y="250" width="414" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="SQe-DV-gd3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
-                                        <color key="textColor" systemColor="systemBlueColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time remaining " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuP-oA-YSY">
-                                        <rect key="frame" x="0.0" y="400" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="hDQ-hd-VAW"/>
                                         </constraints>
@@ -336,8 +309,26 @@
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scoring Info" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFn-Ky-HYq" userLabel="Scoring Info">
+                                        <rect key="frame" x="0.0" y="100" width="414" height="500"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="500" id="rEr-Rz-PlV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygg-Qk-acw">
+                                        <rect key="frame" x="0.0" y="600" width="414" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="vPu-3l-aRT"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
+                                        <color key="textColor" systemColor="systemBlueColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv5-zp-UfY">
-                                        <rect key="frame" x="0.0" y="450" width="414" height="324"/>
+                                        <rect key="frame" x="0.0" y="650" width="414" height="124"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Home">
                                             <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="20"/>
@@ -350,7 +341,6 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="wFn-Ky-HYq" secondAttribute="trailing" id="3cD-Rk-sHe"/>
-                                    <constraint firstItem="7Kc-QV-CU1" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="6n3-rO-WV1"/>
                                     <constraint firstAttribute="trailing" secondItem="2Vd-cP-Fwu" secondAttribute="trailing" id="A4Y-D8-Lla"/>
                                     <constraint firstItem="wFn-Ky-HYq" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="Q9y-Sy-Ngv"/>
                                     <constraint firstItem="ygg-Qk-acw" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="b1M-pB-Kpi"/>
@@ -358,7 +348,6 @@
                                     <constraint firstItem="2Vd-cP-Fwu" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="iCa-DZ-Vrk"/>
                                     <constraint firstAttribute="trailing" secondItem="ygg-Qk-acw" secondAttribute="trailing" id="oLE-ib-Jal"/>
                                     <constraint firstAttribute="trailing" secondItem="KuP-oA-YSY" secondAttribute="trailing" id="rsO-6c-a2X"/>
-                                    <constraint firstAttribute="trailing" secondItem="7Kc-QV-CU1" secondAttribute="trailing" id="sbi-wT-XPk"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -373,9 +362,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fcu-xJ-eW6"/>
                     <connections>
-                        <outlet property="itemsFound" destination="wFn-Ky-HYq" id="4tQ-Pd-7di"/>
-                        <outlet property="itemsNotFound" destination="7Kc-QV-CU1" id="SIE-t7-fn9"/>
                         <outlet property="score" destination="ygg-Qk-acw" id="4L0-cU-ZiT"/>
+                        <outlet property="scoringInfoLabel" destination="wFn-Ky-HYq" id="hNA-8k-Hzp"/>
                         <outlet property="timeRemaining" destination="KuP-oA-YSY" id="eV5-hl-mFw"/>
                     </connections>
                 </viewController>

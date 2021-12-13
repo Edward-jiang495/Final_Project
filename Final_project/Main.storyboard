@@ -314,7 +314,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Finish" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vd-cP-Fwu">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="uWT-9d-XS4"/>
+                                            <constraint firstAttribute="height" constant="50" id="cMa-V6-WcA"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
                                         <color key="textColor" systemColor="linkColor"/>
@@ -323,32 +323,32 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time remaining " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuP-oA-YSY">
                                         <rect key="frame" x="0.0" y="50" width="414" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="hDQ-hd-VAW"/>
+                                            <constraint firstAttribute="height" constant="50" id="RYY-fB-Rnh"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scoring Info" textAlignment="center" lineBreakMode="middleTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wFn-Ky-HYq" userLabel="Scoring Info">
-                                        <rect key="frame" x="0.0" y="100" width="414" height="500"/>
+                                        <rect key="frame" x="0.0" y="100" width="414" height="400"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="500" id="rEr-Rz-PlV"/>
+                                            <constraint firstAttribute="height" constant="400" id="mwP-L7-I6x"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ygg-Qk-acw">
-                                        <rect key="frame" x="0.0" y="600" width="414" height="50"/>
+                                        <rect key="frame" x="0.0" y="500" width="414" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="vPu-3l-aRT"/>
+                                            <constraint firstAttribute="height" constant="50" id="aHR-DJ-dtG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="SnowyChristmas" family="Snowy Christmas - Personal Use" pointSize="40"/>
                                         <color key="textColor" systemColor="systemBlueColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jv5-zp-UfY">
-                                        <rect key="frame" x="0.0" y="650" width="414" height="124"/>
+                                        <rect key="frame" x="0.0" y="550" width="414" height="224"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Home">
                                             <fontDescription key="titleFontDescription" name="PWJoyeuxNoel" family="PWJoyeuxNoel" pointSize="20"/>
@@ -360,40 +360,31 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="wFn-Ky-HYq" secondAttribute="trailing" id="3cD-Rk-sHe"/>
-                                    <constraint firstItem="ygg-Qk-acw" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="53m-mt-1vs"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Vd-cP-Fwu" secondAttribute="trailing" id="A4Y-D8-Lla"/>
-                                    <constraint firstItem="wFn-Ky-HYq" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="DZw-1H-Zvt"/>
-                                    <constraint firstAttribute="trailing" secondItem="jv5-zp-UfY" secondAttribute="trailing" id="GJC-N2-OJJ"/>
-                                    <constraint firstItem="wFn-Ky-HYq" firstAttribute="top" secondItem="KuP-oA-YSY" secondAttribute="bottom" id="M1T-8G-3hb"/>
-                                    <constraint firstAttribute="trailing" secondItem="ygg-Qk-acw" secondAttribute="trailing" id="M3Q-u0-hXV"/>
-                                    <constraint firstItem="wFn-Ky-HYq" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="Q9y-Sy-Ngv"/>
-                                    <constraint firstItem="KuP-oA-YSY" firstAttribute="top" secondItem="2Vd-cP-Fwu" secondAttribute="bottom" id="QTz-jz-tFv"/>
-                                    <constraint firstAttribute="trailing" secondItem="KuP-oA-YSY" secondAttribute="trailing" id="SaE-TO-KGS"/>
-                                    <constraint firstItem="ygg-Qk-acw" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="b1M-pB-Kpi"/>
-                                    <constraint firstItem="2Vd-cP-Fwu" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="bI4-fM-IO0"/>
-                                    <constraint firstItem="KuP-oA-YSY" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="gc7-j2-ucP"/>
-                                    <constraint firstItem="2Vd-cP-Fwu" firstAttribute="top" secondItem="cLO-gy-91G" secondAttribute="top" id="gyz-88-68A"/>
-                                    <constraint firstItem="2Vd-cP-Fwu" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="iCa-DZ-Vrk"/>
-                                    <constraint firstItem="jv5-zp-UfY" firstAttribute="top" secondItem="ygg-Qk-acw" secondAttribute="bottom" id="kdU-pW-Ygg"/>
-                                    <constraint firstItem="KuP-oA-YSY" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="lhd-oI-x7J"/>
-                                    <constraint firstAttribute="trailing" secondItem="ygg-Qk-acw" secondAttribute="trailing" id="oLE-ib-Jal"/>
-                                    <constraint firstItem="ygg-Qk-acw" firstAttribute="top" secondItem="wFn-Ky-HYq" secondAttribute="bottom" id="plO-F1-dTk"/>
-                                    <constraint firstAttribute="trailing" secondItem="wFn-Ky-HYq" secondAttribute="trailing" id="qRY-Lv-E1B"/>
-                                    <constraint firstItem="jv5-zp-UfY" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="qc1-JG-COQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="KuP-oA-YSY" secondAttribute="trailing" id="rsO-6c-a2X"/>
-                                    <constraint firstAttribute="trailing" secondItem="2Vd-cP-Fwu" secondAttribute="trailing" id="tG3-xf-xon"/>
-                                    <constraint firstAttribute="bottom" secondItem="jv5-zp-UfY" secondAttribute="bottom" id="vt5-hv-YV8"/>
+                                    <constraint firstItem="KuP-oA-YSY" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="0Ve-x2-6Zt"/>
+                                    <constraint firstItem="2Vd-cP-Fwu" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="9R7-9Q-eqc"/>
+                                    <constraint firstAttribute="bottom" secondItem="jv5-zp-UfY" secondAttribute="bottom" id="CH2-67-raS"/>
+                                    <constraint firstItem="wFn-Ky-HYq" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="Etm-jT-NWd"/>
+                                    <constraint firstAttribute="trailing" secondItem="KuP-oA-YSY" secondAttribute="trailing" id="GZD-4o-a8S"/>
+                                    <constraint firstItem="ygg-Qk-acw" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="J3q-uB-6eq"/>
+                                    <constraint firstItem="jv5-zp-UfY" firstAttribute="leading" secondItem="cLO-gy-91G" secondAttribute="leading" id="KMl-2a-CT2"/>
+                                    <constraint firstItem="2Vd-cP-Fwu" firstAttribute="top" secondItem="cLO-gy-91G" secondAttribute="top" id="QAc-5E-MPz"/>
+                                    <constraint firstAttribute="trailing" secondItem="2Vd-cP-Fwu" secondAttribute="trailing" id="WiN-cD-utT"/>
+                                    <constraint firstAttribute="trailing" secondItem="ygg-Qk-acw" secondAttribute="trailing" id="iLU-xG-rBX"/>
+                                    <constraint firstItem="wFn-Ky-HYq" firstAttribute="top" secondItem="KuP-oA-YSY" secondAttribute="bottom" id="lHB-on-bwJ"/>
+                                    <constraint firstItem="ygg-Qk-acw" firstAttribute="top" secondItem="wFn-Ky-HYq" secondAttribute="bottom" id="m2a-nW-byQ"/>
+                                    <constraint firstItem="KuP-oA-YSY" firstAttribute="top" secondItem="2Vd-cP-Fwu" secondAttribute="bottom" id="rrj-FE-oUL"/>
+                                    <constraint firstAttribute="trailing" secondItem="wFn-Ky-HYq" secondAttribute="trailing" id="ty6-tw-59W"/>
+                                    <constraint firstAttribute="trailing" secondItem="jv5-zp-UfY" secondAttribute="trailing" id="zaE-Se-TeY"/>
                                 </constraints>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="oQv-U7-B3e"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="cLO-gy-91G" firstAttribute="leading" secondItem="oQv-U7-B3e" secondAttribute="leading" id="Dpf-au-66j"/>
-                            <constraint firstItem="oQv-U7-B3e" firstAttribute="trailing" secondItem="cLO-gy-91G" secondAttribute="trailing" id="GwS-8Q-ziv"/>
-                            <constraint firstItem="cLO-gy-91G" firstAttribute="top" secondItem="oQv-U7-B3e" secondAttribute="top" id="HA8-X5-Zsj"/>
-                            <constraint firstItem="oQv-U7-B3e" firstAttribute="bottom" secondItem="cLO-gy-91G" secondAttribute="bottom" id="NvW-VT-DkZ"/>
+                            <constraint firstItem="oQv-U7-B3e" firstAttribute="trailing" secondItem="cLO-gy-91G" secondAttribute="trailing" id="2PR-XU-Gld"/>
+                            <constraint firstItem="cLO-gy-91G" firstAttribute="leading" secondItem="oQv-U7-B3e" secondAttribute="leading" id="6Nf-oS-6vK"/>
+                            <constraint firstItem="cLO-gy-91G" firstAttribute="top" secondItem="oQv-U7-B3e" secondAttribute="top" id="fKK-CB-uoe"/>
+                            <constraint firstItem="oQv-U7-B3e" firstAttribute="bottom" secondItem="cLO-gy-91G" secondAttribute="bottom" id="wf0-cC-yEF"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Fcu-xJ-eW6"/>

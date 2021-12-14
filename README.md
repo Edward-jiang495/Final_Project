@@ -14,6 +14,9 @@
 
 5. The app will use YOLO to detect objects (we will be skimming the top 2-3 predictions and require the user to tap the “found object” button to confirm they found the object. This is so that the app doesn’t accidentally find the object & complete it for the user unintentionally).
 
+# Links 
+Youtube link: https://www.youtube.com/watch?v=wvNRoJBkzuQ
+
 # Implementation Design
 
 # Models

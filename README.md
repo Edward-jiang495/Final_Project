@@ -1,4 +1,4 @@
-# AR Scavenger Project Specifications
+# Scavenger Project Specifications
 
 ### Jonathan Ebrahimian Nathan Gage Edward Jiang
 
@@ -108,7 +108,6 @@ We should save items to the player model & local storage as they are found. Stor
 * On all states
     * Camera Viewfinder
 * GameState = READY
-    * Countdown w/ 3... 2... 1...
     * High score in big text
     * Items that need to be found
     * Location of game
@@ -130,7 +129,5 @@ We should save items to the player model & local storage as they are found. Stor
     * Display time remaining
     * Display score
     * Display if player beat PR
-    * Display if room has been completed
-        * Special text if it is their first completion 
+    * Display if room has been completed 
     * Replay button
-    * Exit button

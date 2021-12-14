@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TCM-wr-OOT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TCM-wr-OOT">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -221,9 +221,8 @@
                                 <color key="textColor" systemColor="linkColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d9y-d7-Ug1" userLabel="Video Preview">
-                                <rect key="frame" x="19" y="114" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9y-d7-Ug1" userLabel="Video Preview">
+                                <rect key="frame" x="0.0" y="114.5" width="414" height="693.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="OTo-Us-Cun">
@@ -272,14 +271,18 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="d9y-d7-Ug1" firstAttribute="top" secondItem="eQD-86-LEg" secondAttribute="bottom" constant="4" id="CDA-so-yES"/>
+                            <constraint firstItem="Hnc-na-gAV" firstAttribute="trailing" secondItem="d9y-d7-Ug1" secondAttribute="trailing" id="Ei4-vI-GWf"/>
                             <constraint firstItem="BoY-Ze-HOC" firstAttribute="top" secondItem="OTo-Us-Cun" secondAttribute="bottom" constant="150" id="Hti-nh-yCo"/>
                             <constraint firstItem="OTo-Us-Cun" firstAttribute="leading" secondItem="Hnc-na-gAV" secondAttribute="leading" id="MhB-7W-pcL"/>
                             <constraint firstItem="eQD-86-LEg" firstAttribute="leading" secondItem="Hnc-na-gAV" secondAttribute="leading" constant="84" id="WQ0-SW-YYy"/>
+                            <constraint firstItem="d9y-d7-Ug1" firstAttribute="leading" secondItem="Hnc-na-gAV" secondAttribute="leading" id="ZvW-uc-nG7"/>
                             <constraint firstItem="eQD-86-LEg" firstAttribute="top" secondItem="o2n-gJ-Fhp" secondAttribute="top" constant="84" id="b4q-sv-ivV"/>
                             <constraint firstItem="Hnc-na-gAV" firstAttribute="trailing" secondItem="eQD-86-LEg" secondAttribute="trailing" constant="84" id="ovG-zD-fxu"/>
                             <constraint firstAttribute="trailing" secondItem="OTo-Us-Cun" secondAttribute="trailing" id="qxP-nm-7Gz"/>
                             <constraint firstItem="Hnc-na-gAV" firstAttribute="trailing" secondItem="BoY-Ze-HOC" secondAttribute="trailing" constant="80" id="uoy-kX-cRZ"/>
                             <constraint firstItem="Hnc-na-gAV" firstAttribute="bottom" secondItem="BoY-Ze-HOC" secondAttribute="bottom" id="v4q-fu-xgb"/>
+                            <constraint firstItem="BoY-Ze-HOC" firstAttribute="top" secondItem="d9y-d7-Ug1" secondAttribute="bottom" constant="4" id="vMe-vF-H8y"/>
                             <constraint firstItem="BoY-Ze-HOC" firstAttribute="leading" secondItem="Hnc-na-gAV" secondAttribute="leading" constant="80" id="zBj-CA-J3g"/>
                         </constraints>
                     </view>
